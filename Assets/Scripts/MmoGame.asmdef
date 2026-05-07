@@ -2,7 +2,8 @@
     "name": "MmoGame",
     "rootNamespace": "MmoGame",
     "references": [
-        "NakamaRuntime"
+        "NakamaRuntime",
+        "FishNet.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

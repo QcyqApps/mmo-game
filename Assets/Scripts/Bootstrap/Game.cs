@@ -1,5 +1,6 @@
 using System;
 using MmoGame.Backend;
+using MmoGame.Networking;
 using UnityEngine;
 
 namespace MmoGame.Bootstrap
@@ -14,6 +15,7 @@ namespace MmoGame.Bootstrap
     {
         public static Game Instance { get; private set; }
         public NakamaClientService Nakama { get; private set; }
+        public NetworkLauncher Net { get; private set; }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void Bootstrap()
@@ -21,17 +23,19 @@ namespace MmoGame.Bootstrap
             if (Instance != null) return;
             var go = new GameObject("[Game]");
             DontDestroyOnLoad(go);
+            go.AddComponent<NetworkLauncher>();
             go.AddComponent<Game>();
         }
 
         void Awake()
         {
             Instance = this;
+            Net = GetComponent<NetworkLauncher>();
             Debug.Log($"[Game] Bootstrap on {Application.platform}, version {Application.version}");
-            _ = AuthenticateAsync();
+            _ = StartupAsync();
         }
 
-        async System.Threading.Tasks.Task AuthenticateAsync()
+        async System.Threading.Tasks.Task StartupAsync()
         {
             Nakama = new NakamaClientService();
             var config = NakamaClientService.LoadConfig();
@@ -43,7 +47,10 @@ namespace MmoGame.Bootstrap
             catch (Exception e)
             {
                 Debug.LogError($"[Game] Nakama auth failed: {e.GetType().Name}: {e.Message}");
+                return;
             }
+
+            Net.Launch();
         }
     }
 }

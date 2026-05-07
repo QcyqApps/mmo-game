@@ -2,7 +2,8 @@
     "name": "MmoGame.Editor",
     "rootNamespace": "MmoGame.Editor",
     "references": [
-        "MmoGame"
+        "MmoGame",
+        "FishNet.Runtime"
     ],
     "includePlatforms": [
         "Editor"
