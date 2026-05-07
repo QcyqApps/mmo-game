@@ -1,0 +1,70 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/[Ss]erver-*/
+[Bb]uild/[Cc]lient-*/
+[Bb]uild/[Aa]rtifacts/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Aa]ssets/[Aa]ssetStoreTools*
+
+# Unity meta-collisions / autogen
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity package builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crashlytics / Burst
+crashlytics-build.properties
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Ss]treaming[Aa]ssets/aa.meta
+/[Aa]ssets/[Ss]treaming[Aa]ssets/aa/*
+
+# Visual Studio / Rider / VS Code (selective)
+.vs/
+.idea/
+.vscode/
+*.csproj.user
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Server stack
+Server/data/
+Server/postgres-data/
+Server/nakama-data/
+Server/*.log
+
+# Node / tooling
+node_modules/
+*.log
