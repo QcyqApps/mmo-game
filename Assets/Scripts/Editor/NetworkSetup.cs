@@ -34,9 +34,47 @@ namespace MmoGame.Editor
             var playerPrefab = EnsurePlayerPrefab();
             EnsureSceneNetwork(playerPrefab);
             RegisterDefaultPrefab(playerPrefab);
+            EnsureCamera();
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveOpenScenes();
             Debug.Log("[NetworkSetup] Done. Press Play to host; second instance can join via --connect 127.0.0.1.");
+        }
+
+        [MenuItem("MmoGame/Setup Camera")]
+        public static void RunSetupCamera()
+        {
+            EnsureCamera();
+            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+            EditorSceneManager.SaveOpenScenes();
+            Debug.Log("[NetworkSetup] Camera ready. PlayerController will auto-bind on spawn.");
+        }
+
+        static void EnsureCamera()
+        {
+            // Reuse Main Camera if present, otherwise create one.
+            var camGo = GameObject.Find("Main Camera");
+            if (camGo == null)
+            {
+                camGo = new GameObject("Main Camera");
+                camGo.tag = "MainCamera";
+                camGo.AddComponent<Camera>();
+                camGo.AddComponent<AudioListener>();
+            }
+
+            var cam = camGo.GetComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.Skybox;
+            cam.fieldOfView = 50f;
+            cam.nearClipPlane = 0.1f;
+            cam.farClipPlane = 500f;
+
+            var follow = camGo.GetComponent<MmoGame.Gameplay.PlayerCamera>();
+            if (follow == null) follow = camGo.AddComponent<MmoGame.Gameplay.PlayerCamera>();
+
+            // RO-style: 45° pitch from horizontal, 12u behind/above the player.
+            camGo.transform.position = new Vector3(0f, 12f, -12f);
+            camGo.transform.rotation = Quaternion.Euler(45f, 0f, 0f);
+
+            EditorUtility.SetDirty(camGo);
         }
 
         [MenuItem("MmoGame/Apply Knight Visual")]

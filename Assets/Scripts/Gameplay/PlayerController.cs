@@ -13,12 +13,17 @@ namespace MmoGame.Gameplay
     public class PlayerController : NetworkBehaviour
     {
         [SerializeField] float speed = 5f;
+        [SerializeField] float turnLerp = 12f;
 
         public override void OnStartClient()
         {
             base.OnStartClient();
-            if (IsOwner)
-                Debug.Log($"[Player] Owned spawn at {transform.position} (id={ObjectId})");
+            if (!IsOwner) return;
+
+            Debug.Log($"[Player] Owned spawn at {transform.position} (id={ObjectId})");
+
+            if (PlayerCamera.Instance != null)
+                PlayerCamera.Instance.SetTarget(transform);
         }
 
         void Update()
@@ -34,6 +39,10 @@ namespace MmoGame.Gameplay
 
             var dir = new Vector3(h, 0f, v).normalized;
             transform.Translate(dir * (speed * Time.deltaTime), Space.World);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(dir, Vector3.up),
+                turnLerp * Time.deltaTime);
         }
     }
 }
