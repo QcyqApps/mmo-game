@@ -1,6 +1,7 @@
 using System;
 using MmoGame.Backend;
 using MmoGame.Networking;
+using MmoGame.World;
 using UnityEngine;
 
 namespace MmoGame.Bootstrap
@@ -37,6 +38,8 @@ namespace MmoGame.Bootstrap
 
         async System.Threading.Tasks.Task StartupAsync()
         {
+            MapLoader.Load("knights-camp");
+
             Nakama = new NakamaClientService();
             var config = NakamaClientService.LoadConfig();
             try
