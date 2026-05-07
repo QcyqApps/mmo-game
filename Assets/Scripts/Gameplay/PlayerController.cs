@@ -1,5 +1,6 @@
 using FishNet.Object;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MmoGame.Gameplay
 {
@@ -24,8 +25,11 @@ namespace MmoGame.Gameplay
         {
             if (!IsOwner) return;
 
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
+            var kb = Keyboard.current;
+            if (kb == null) return;
+
+            float h = (kb.dKey.isPressed ? 1f : 0f) - (kb.aKey.isPressed ? 1f : 0f);
+            float v = (kb.wKey.isPressed ? 1f : 0f) - (kb.sKey.isPressed ? 1f : 0f);
             if (h == 0f && v == 0f) return;
 
             var dir = new Vector3(h, 0f, v).normalized;

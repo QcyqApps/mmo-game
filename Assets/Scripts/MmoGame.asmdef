@@ -3,7 +3,8 @@
     "rootNamespace": "MmoGame",
     "references": [
         "NakamaRuntime",
-        "FishNet.Runtime"
+        "FishNet.Runtime",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
