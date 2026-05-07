@@ -1,0 +1,31 @@
+name: mmogame-nakama
+data_dir: /nakama/data
+
+logger:
+  level: INFO
+  stdout: true
+
+console:
+  port: 7351
+  username: admin
+  # password przekazujemy przez CLI flag z docker-compose entrypoint
+
+session:
+  token_expiry_sec: 7200            # 2h
+  refresh_token_expiry_sec: 604800  # 7 days
+  # encryption keys: CLI flag z compose
+
+socket:
+  port: 7350
+  protocol: tcp
+  # server_key: CLI flag z compose
+
+runtime:
+  path: /nakama/data/modules
+
+match:
+  max_size: 256       # cap players w pojedynczym Nakama match — niezwiązane z FishNet world cap
+
+leaderboard:
+  callback_queue_size: 65536
+  callback_queue_workers: 8
