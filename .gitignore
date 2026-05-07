@@ -72,6 +72,16 @@ Server/*.log
 Assets/Synty/
 Assets/Synty.meta
 
+# Map authoring iteration artifacts — referencyjne renders generowane w trakcie
+# iteracji nad mapami (przez subagent / Map Editor). Nie commitujemy.
+Assets/Screenshots/
+Assets/Screenshots.meta
+Assets/UserChoices.choices
+Assets/UserChoices.choices.meta
+
+# Multi-project / virtual instances cache
+ProjectSettings/VirtualProjectsConfig.json
+
 # Node / tooling
 node_modules/
 *.log

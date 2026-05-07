@@ -44,12 +44,12 @@ namespace MmoGame.World
             int spawned = 0, missing = 0;
 
             if (manifest.pieces != null)
-                foreach (var piece in manifest.pieces)
-                    SpawnPiece(piece, root.transform, groups, registry, ref spawned, ref missing);
+                for (int i = 0; i < manifest.pieces.Length; i++)
+                    SpawnPiece(manifest.pieces[i], i, root.transform, groups, registry, ref spawned, ref missing);
 
             if (manifest.tilings != null)
-                foreach (var tiling in manifest.tilings)
-                    SpawnTiling(tiling, root.transform, groups, registry, ref spawned, ref missing);
+                for (int i = 0; i < manifest.tilings.Length; i++)
+                    SpawnTiling(manifest.tilings[i], i, root.transform, groups, registry, ref spawned, ref missing);
 
             if (bakeNavMesh) BakeNavMesh(root);
 
@@ -57,7 +57,7 @@ namespace MmoGame.World
             return root;
         }
 
-        static void SpawnPiece(MapPiece piece, Transform root, Dictionary<string, Transform> groups,
+        static void SpawnPiece(MapPiece piece, int pieceIndex, Transform root, Dictionary<string, Transform> groups,
                                 MapPrefabRegistry registry, ref int spawned, ref int missing)
         {
             var prefab = registry.Get(piece.prefab);
@@ -72,10 +72,15 @@ namespace MmoGame.World
             go.transform.localPosition = ToVec3(piece.position, Vector3.zero);
             go.transform.localRotation = Quaternion.Euler(ToVec3(piece.rotation, Vector3.zero));
             go.transform.localScale = ToVec3(piece.scale, Vector3.one);
+            var marker = go.AddComponent<MapPieceMarker>();
+            marker.kind = MapMarkerKind.Piece;
+            marker.pieceIndex = pieceIndex;
+            marker.prefabName = piece.prefab;
+            marker.groupName = piece.parent;
             spawned++;
         }
 
-        static void SpawnTiling(MapTiling tiling, Transform root, Dictionary<string, Transform> groups,
+        static void SpawnTiling(MapTiling tiling, int tilingIndex, Transform root, Dictionary<string, Transform> groups,
                                  MapPrefabRegistry registry, ref int spawned, ref int missing)
         {
             var prefab = registry.Get(tiling.prefab);
@@ -97,14 +102,29 @@ namespace MmoGame.World
             float sz = step.z > 1e-4f ? step.z : (max.z - min.z + 1f);
 
             const float EPS = 1e-4f;
-            for (float x = min.x; x <= max.x + EPS; x += sx)
-            for (float y = min.y; y <= max.y + EPS; y += sy)
-            for (float z = min.z; z <= max.z + EPS; z += sz)
+            int ix = 0, iy, iz;
+            for (float x = min.x; x <= max.x + EPS; x += sx, ix++)
             {
-                var go = Object.Instantiate(prefab, parent);
-                go.transform.localPosition = new Vector3(x, y, z);
-                go.transform.localRotation = rot;
-                spawned++;
+                iy = 0;
+                for (float y = min.y; y <= max.y + EPS; y += sy, iy++)
+                {
+                    iz = 0;
+                    for (float z = min.z; z <= max.z + EPS; z += sz, iz++)
+                    {
+                        var go = Object.Instantiate(prefab, parent);
+                        go.transform.localPosition = new Vector3(x, y, z);
+                        go.transform.localRotation = rot;
+                        var marker = go.AddComponent<MapPieceMarker>();
+                        marker.kind = MapMarkerKind.Tiling;
+                        marker.tilingIndex = tilingIndex;
+                        marker.tilingIx = ix;
+                        marker.tilingIy = iy;
+                        marker.tilingIz = iz;
+                        marker.prefabName = tiling.prefab;
+                        marker.groupName = tiling.parent;
+                        spawned++;
+                    }
+                }
             }
         }
 

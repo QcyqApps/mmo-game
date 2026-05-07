@@ -24,6 +24,22 @@ namespace MmoGame.Editor
         // Categories whose pieces are expected to overlap or stack — skipped for overlap checks.
         static readonly string[] OverlapWhitelistPrefixes = { "env_tile_", "env_path_", "env_grass" };
 
+        // Pairs of prefixes whose mutual overlap is intentional (statue on base, chimney
+        // through roof, sign mounted on wall, banner on tower, etc). Pair order doesn't
+        // matter — we test both directions.
+        static readonly (string, string)[] OverlapWhitelistPairs =
+        {
+            ("prop_statue_", "prop_statue_base"),
+            ("bld_house_chimney_", "bld_house_room_top_"),
+            ("prop_shop_sign_", "bld_house_door_"),
+            ("prop_shop_sign_", "bld_house_room_"),
+            ("prop_banner_",    "bld_castle_wall_"),
+            ("prop_banner_",    "bld_house_tower_"),
+            ("bld_house_tower_", "bld_castle_wall_"),
+            ("bld_church_tower_", "bld_church_room_"),
+            ("bld_church_extension_", "bld_church_room_"),
+        };
+
         [MenuItem("MmoGame/Validate Maps")]
         public static void ValidateAll()
         {
@@ -106,6 +122,7 @@ namespace MmoGame.Editor
             for (int j = i + 1; j < aabbs.Count; j++)
             {
                 var a = aabbs[i]; var b = aabbs[j];
+                if (IsPairWhitelisted(a.name, b.name)) continue;
                 var overlap = OverlapVolume(a.center, a.size, b.center, b.size);
                 var minVol = Mathf.Min(Volume(a.size), Volume(b.size));
                 if (minVol > 1e-4f && overlap / minVol > OverlapThreshold)
@@ -127,6 +144,11 @@ namespace MmoGame.Editor
 
         static bool IsOverlapWhitelisted(string name) =>
             OverlapWhitelistPrefixes.Any(p => name.StartsWith(p));
+
+        static bool IsPairWhitelisted(string a, string b) =>
+            OverlapWhitelistPairs.Any(pair =>
+                (a.StartsWith(pair.Item1) && b.StartsWith(pair.Item2)) ||
+                (b.StartsWith(pair.Item1) && a.StartsWith(pair.Item2)));
 
         static Vector3 ToVec3(float[] arr, Vector3 fb) =>
             arr == null || arr.Length < 3 ? fb : new Vector3(arr[0], arr[1], arr[2]);

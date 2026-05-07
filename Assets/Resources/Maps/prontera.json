@@ -1,33 +1,5321 @@
 {
-  "name": "prontera",
-  "pieces": [
-    { "prefab": "bld_rockwall_archway_01", "position": [100, 0, 0],   "rotation": [0, 90, 0], "parent": "gates", "note": "east gate" },
-    { "prefab": "bld_rockwall_archway_01", "position": [-100, 0, 0],  "rotation": [0, 90, 0], "parent": "gates", "note": "west gate" },
-    { "prefab": "bld_rockwall_archway_01", "position": [0, 0, 100],   "rotation": [0, 0, 0],  "parent": "gates", "note": "north gate" },
-    { "prefab": "bld_rockwall_archway_01", "position": [0, 0, -100],  "rotation": [0, 0, 0],  "parent": "gates", "note": "south gate" },
-
-    { "prefab": "prop_brazier_01", "position": [0, 0, 0], "rotation": [0, 0, 0], "parent": "plaza", "note": "fountain placeholder at plaza centre" },
-
-    { "prefab": "bld_tent_01",        "position": [30, 0, 30],   "rotation": [0, 225, 0], "parent": "district-NE", "note": "kafra (NE merchant) - faces plaza SW" },
-    { "prefab": "bld_castle_door_01", "position": [-30, 0, 30],  "rotation": [0, 180, 0], "parent": "district-NW", "note": "weapon-shop (NW residential) - faces plaza" },
-    { "prefab": "bld_tent_02",        "position": [-35, 0, -35], "rotation": [0, 45, 0],  "parent": "district-SW", "note": "item-shop (SW barracks) - faces plaza NE" },
-    { "prefab": "bld_tent_03",        "position": [35, 0, -35],  "rotation": [0, -45, 0], "parent": "district-SE", "note": "inn (SE temple) - faces plaza NW" }
-  ],
-  "tilings": [
-    { "prefab": "env_tile_grass_01", "min": [-99, 0, -99], "max": [99, 0, 99], "step": [3, 0, 3], "rotation": [0, 0, 0], "parent": "ground", "note": "200x200 grass baseline (tile=3u)" },
-
-    { "prefab": "env_path_cobble_01", "min": [-18, 0.05, -18], "max": [18, 0.05, 18], "step": [3, 0, 3], "rotation": [0, 0, 0], "parent": "plaza", "note": "40x40 plaza paving, slight y=0.05 to avoid z-fight with grass" },
-
-    { "prefab": "bld_rockwall_straight_01", "min": [100, 0, 4],    "max": [100, 0, 98],  "step": [0, 0, 4], "rotation": [0, 0, 0],   "parent": "walls", "note": "east wall north half (gate gap z=-2..+2)" },
-    { "prefab": "bld_rockwall_straight_01", "min": [100, 0, -98],  "max": [100, 0, -4],  "step": [0, 0, 4], "rotation": [0, 0, 0],   "parent": "walls", "note": "east wall south half" },
-
-    { "prefab": "bld_rockwall_straight_01", "min": [-100, 0, 4],   "max": [-100, 0, 98], "step": [0, 0, 4], "rotation": [0, 180, 0], "parent": "walls", "note": "west wall north half (mirrored)" },
-    { "prefab": "bld_rockwall_straight_01", "min": [-100, 0, -98], "max": [-100, 0, -4], "step": [0, 0, 4], "rotation": [0, 180, 0], "parent": "walls", "note": "west wall south half" },
-
-    { "prefab": "bld_rockwall_straight_01", "min": [4, 0, 100],    "max": [98, 0, 100],  "step": [4, 0, 0], "rotation": [0, 90, 0],  "parent": "walls", "note": "north wall east half (gate gap x=-2..+2)" },
-    { "prefab": "bld_rockwall_straight_01", "min": [-98, 0, 100],  "max": [-4, 0, 100],  "step": [4, 0, 0], "rotation": [0, 90, 0],  "parent": "walls", "note": "north wall west half" },
-
-    { "prefab": "bld_rockwall_straight_01", "min": [4, 0, -100],   "max": [98, 0, -100], "step": [4, 0, 0], "rotation": [0, -90, 0], "parent": "walls", "note": "south wall east half (mirrored)" },
-    { "prefab": "bld_rockwall_straight_01", "min": [-98, 0, -100], "max": [-4, 0, -100], "step": [4, 0, 0], "rotation": [0, -90, 0], "parent": "walls", "note": "south wall west half" }
-  ]
+    "name": "prontera",
+    "pieces": [
+        {
+            "prefab": "bld_castle_wall_gate_01",
+            "position": [
+                70.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": "east gate"
+        },
+        {
+            "prefab": "bld_castle_wall_gate_01",
+            "position": [
+                -70.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": "west gate"
+        },
+        {
+            "prefab": "bld_castle_wall_gate_01",
+            "position": [
+                0.0,
+                0.0,
+                70.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": "north gate"
+        },
+        {
+            "prefab": "bld_castle_wall_gate_01",
+            "position": [
+                0.0,
+                0.0,
+                -70.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": "south gate"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                67.5,
+                0.0,
+                67.5
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "NE corner tower"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -67.5,
+                0.0,
+                67.5
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "NW corner tower"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                67.5,
+                0.0,
+                -67.5
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "SE corner tower"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -67.5,
+                0.0,
+                -67.5
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "SW corner tower"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                70.0,
+                0.0,
+                6.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "east gate flanking N"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                70.0,
+                0.0,
+                -6.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "east gate flanking S"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -70.0,
+                0.0,
+                6.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "west gate flanking N"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -70.0,
+                0.0,
+                -6.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "west gate flanking S"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                6.0,
+                0.0,
+                70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "north gate flanking E"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -6.0,
+                0.0,
+                70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "north gate flanking W"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                6.0,
+                0.0,
+                -70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "south gate flanking E"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -6.0,
+                0.0,
+                -70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "gates",
+            "note": "south gate flanking W"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                70.0,
+                0.0,
+                36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "east wall midtower N (between corner 67.5 and gate flank 6)"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                70.0,
+                0.0,
+                -36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "east wall midtower S"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -70.0,
+                0.0,
+                36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "west wall midtower N"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -70.0,
+                0.0,
+                -36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "west wall midtower S"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                36.0,
+                0.0,
+                70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "north wall midtower E"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -36.0,
+                0.0,
+                70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "north wall midtower W"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                36.0,
+                0.0,
+                -70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "south wall midtower E"
+        },
+        {
+            "prefab": "bld_house_tower_01",
+            "position": [
+                -36.0,
+                0.0,
+                -70.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "walls",
+            "note": "south wall midtower W"
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                70.0,
+                4.5,
+                8.5
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                70.0,
+                4.5,
+                -8.5
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                -70.0,
+                4.5,
+                8.5
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                -70.0,
+                4.5,
+                -8.5
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                8.5,
+                4.5,
+                70.0
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                -8.5,
+                4.5,
+                70.0
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                8.5,
+                4.5,
+                -70.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                -8.5,
+                4.5,
+                -70.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "gates",
+            "note": ""
+        },
+        {
+            "prefab": "bld_village_well_01",
+            "position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "central fountain"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -3.0,
+                0.0,
+                -3.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "fountain ring SW"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                -3.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "fountain ring SE"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "fountain ring NW"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "fountain ring NE"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                -15.0,
+                0.0,
+                -15.0
+            ],
+            "rotation": [
+                0.0,
+                45.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "plaza inner SW lampost"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                15.0,
+                0.0,
+                -15.0
+            ],
+            "rotation": [
+                0.0,
+                -45.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                -15.0,
+                0.0,
+                15.0
+            ],
+            "rotation": [
+                0.0,
+                135.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                15.0,
+                0.0,
+                15.0
+            ],
+            "rotation": [
+                0.0,
+                -135.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                0.0,
+                0.0,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "plaza S edge lampost on perimeter road"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                0.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "plaza N edge lampost"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                -18.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "plaza W edge lampost"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                18.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "plaza E edge lampost"
+        },
+        {
+            "prefab": "prop_cart_01",
+            "position": [
+                -12.0,
+                0.0,
+                8.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "merchant cart NW"
+        },
+        {
+            "prefab": "prop_cart_hay_01",
+            "position": [
+                12.0,
+                0.0,
+                8.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "hay cart NE"
+        },
+        {
+            "prefab": "prop_cart_01",
+            "position": [
+                -12.0,
+                0.0,
+                -8.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "merchant cart SW"
+        },
+        {
+            "prefab": "prop_cart_hay_01",
+            "position": [
+                12.0,
+                0.0,
+                -8.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "hay cart SE"
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                -9.0,
+                0.0,
+                12.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "market stall N row"
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                9.0,
+                0.0,
+                12.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                -9.0,
+                0.0,
+                -12.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": "market stall S row"
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                9.0,
+                0.0,
+                -12.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_barrel_wood_01",
+            "position": [
+                -13.0,
+                0.0,
+                4.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_barrel_wood_02",
+            "position": [
+                -13.0,
+                0.0,
+                -4.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_crate_02",
+            "position": [
+                13.0,
+                0.0,
+                4.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_crate_03",
+            "position": [
+                13.0,
+                0.0,
+                -4.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_sack_stack_01",
+            "position": [
+                -7.0,
+                0.0,
+                12.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "next to market stall N"
+        },
+        {
+            "prefab": "gen_prop_sack_stack_02",
+            "position": [
+                7.0,
+                0.0,
+                12.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_food_vegetable_05",
+            "position": [
+                -9.0,
+                0.75,
+                12.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "veggies on table"
+        },
+        {
+            "prefab": "gen_prop_food_bread_01",
+            "position": [
+                9.0,
+                0.75,
+                12.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "bread on table"
+        },
+        {
+            "prefab": "gen_prop_food_meat_01",
+            "position": [
+                -9.0,
+                0.75,
+                -12.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_food_meat_05",
+            "position": [
+                9.0,
+                0.75,
+                -12.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                -22.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": "flower planters at outer plaza corners"
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                22.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                -22.0,
+                0.0,
+                -22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                22.0,
+                0.0,
+                -22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "plaza",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                -25.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": "west road lampost A"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                -45.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": "west road lampost B"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                25.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                45.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                0.0,
+                0.0,
+                -25.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                0.0,
+                0.0,
+                -45.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": ""
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                -12.0,
+                0.0,
+                42.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": "north road lampost W just before church courtyard"
+        },
+        {
+            "prefab": "prop_lampost_01",
+            "position": [
+                12.0,
+                0.0,
+                42.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "streets",
+            "note": "north road lampost E"
+        },
+        {
+            "prefab": "bld_church_room_01",
+            "position": [
+                0.0,
+                0.0,
+                47.0
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "nave south segment (church_room z=8.75, this places nave from z≈42.6 to 51.4)"
+        },
+        {
+            "prefab": "bld_church_room_02",
+            "position": [
+                0.0,
+                0.0,
+                55.75
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "nave north segment (z=51.4..60.1) — stacked deeper"
+        },
+        {
+            "prefab": "bld_church_tower_01",
+            "position": [
+                0.0,
+                6.400000095367432,
+                51.5
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "central spire above join"
+        },
+        {
+            "prefab": "bld_church_tower_02",
+            "position": [
+                0.0,
+                6.400000095367432,
+                47.0
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "smaller front spire above entrance"
+        },
+        {
+            "prefab": "bld_church_door_01",
+            "position": [
+                0.0,
+                0.0,
+                42.5
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "main entrance facing plaza"
+        },
+        {
+            "prefab": "bld_church_extension_01",
+            "position": [
+                -5.300000190734863,
+                0.0,
+                47.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "west wing front"
+        },
+        {
+            "prefab": "bld_church_extension_01",
+            "position": [
+                5.300000190734863,
+                0.0,
+                47.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "east wing front"
+        },
+        {
+            "prefab": "bld_church_extension_01",
+            "position": [
+                -5.300000190734863,
+                0.0,
+                55.75
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "west wing rear"
+        },
+        {
+            "prefab": "bld_church_extension_01",
+            "position": [
+                5.300000190734863,
+                0.0,
+                55.75
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "east wing rear"
+        },
+        {
+            "prefab": "prop_statue_base_01",
+            "position": [
+                -7.0,
+                0.0,
+                36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "knight statue west"
+        },
+        {
+            "prefab": "prop_statue_01",
+            "position": [
+                -7.0,
+                1.1699999570846558,
+                36.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_statue_base_01",
+            "position": [
+                7.0,
+                0.0,
+                36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_statue_01",
+            "position": [
+                7.0,
+                1.1699999570846558,
+                36.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -2.5,
+                0.0,
+                41.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "porch brazier W"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                2.5,
+                0.0,
+                41.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "porch brazier E"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -7.0,
+                0.0,
+                31.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "courtyard brazier W"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                7.0,
+                0.0,
+                31.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "courtyard brazier E"
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                -12.0,
+                0.0,
+                31.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "courtyard tree W edge"
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                12.0,
+                0.0,
+                31.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "courtyard tree E edge"
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                -12.0,
+                0.0,
+                39.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                12.0,
+                0.0,
+                39.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_01",
+            "position": [
+                -11.0,
+                0.0,
+                56.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "graveyard behind nave — west row"
+        },
+        {
+            "prefab": "prop_gravestone_02",
+            "position": [
+                -11.0,
+                0.0,
+                59.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_01",
+            "position": [
+                -11.0,
+                0.0,
+                62.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_02",
+            "position": [
+                11.0,
+                0.0,
+                56.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "graveyard east row"
+        },
+        {
+            "prefab": "prop_gravestone_01",
+            "position": [
+                11.0,
+                0.0,
+                59.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_02",
+            "position": [
+                11.0,
+                0.0,
+                62.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_01",
+            "position": [
+                -7.0,
+                0.0,
+                64.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "graveyard back row"
+        },
+        {
+            "prefab": "prop_gravestone_02",
+            "position": [
+                -3.0,
+                0.0,
+                64.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_01",
+            "position": [
+                3.0,
+                0.0,
+                64.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_gravestone_02",
+            "position": [
+                7.0,
+                0.0,
+                64.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -13.0,
+                0.0,
+                60.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "graveyard lantern W"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                13.0,
+                0.0,
+                60.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "landmark-church",
+            "note": "graveyard lantern E"
+        },
+        {
+            "prefab": "bld_house_foundation_01",
+            "position": [
+                -22.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "NW row1 house A — faces south onto inner perimeter road"
+        },
+        {
+            "prefab": "bld_house_room_01",
+            "position": [
+                -22.0,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_01",
+            "position": [
+                -22.0,
+                7.900000095367432,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                -25.299999237060548,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "door faces west alley"
+        },
+        {
+            "prefab": "bld_house_chimney_01",
+            "position": [
+                -21.0,
+                5.619999885559082,
+                19.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_02",
+            "position": [
+                -37.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row1 house B"
+        },
+        {
+            "prefab": "bld_house_room_02",
+            "position": [
+                -37.0,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_02",
+            "position": [
+                -37.0,
+                7.900000095367432,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_02",
+            "position": [
+                -40.29999923706055,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_03",
+            "position": [
+                -52.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row1 house C"
+        },
+        {
+            "prefab": "bld_house_room_03",
+            "position": [
+                -52.0,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_03",
+            "position": [
+                -52.0,
+                7.900000095367432,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                -55.29999923706055,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_chimney_02",
+            "position": [
+                -51.0,
+                5.619999885559082,
+                19.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_04",
+            "position": [
+                -22.0,
+                0.0,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row2 house D — faces north alley"
+        },
+        {
+            "prefab": "bld_house_room_04",
+            "position": [
+                -22.0,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_04",
+            "position": [
+                -22.0,
+                7.900000095367432,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_03",
+            "position": [
+                -22.0,
+                2.809999942779541,
+                41.29999923706055
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_05",
+            "position": [
+                -37.0,
+                0.0,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row2 house E"
+        },
+        {
+            "prefab": "bld_house_room_05",
+            "position": [
+                -37.0,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_05",
+            "position": [
+                -37.0,
+                7.900000095367432,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                -37.0,
+                2.809999942779541,
+                41.29999923706055
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_chimney_03",
+            "position": [
+                -38.0,
+                5.619999885559082,
+                39.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_06",
+            "position": [
+                -52.0,
+                0.0,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row2 house F"
+        },
+        {
+            "prefab": "bld_house_room_06",
+            "position": [
+                -52.0,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_06",
+            "position": [
+                -52.0,
+                7.900000095367432,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_07",
+            "position": [
+                -37.0,
+                0.0,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row3 house G — faces north wall road"
+        },
+        {
+            "prefab": "bld_house_room_07",
+            "position": [
+                -37.0,
+                2.809999942779541,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_07",
+            "position": [
+                -37.0,
+                7.900000095367432,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_01",
+            "position": [
+                -52.0,
+                0.0,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "row3 house H"
+        },
+        {
+            "prefab": "bld_house_room_01",
+            "position": [
+                -52.0,
+                2.809999942779541,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_01",
+            "position": [
+                -52.0,
+                7.900000095367432,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_chimney_01",
+            "position": [
+                -53.0,
+                5.619999885559082,
+                57.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_01",
+            "position": [
+                -30.0,
+                0.0,
+                28.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "between rows 1 and 2"
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                -45.0,
+                0.0,
+                28.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                -30.0,
+                0.0,
+                48.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "between rows 2 and 3"
+        },
+        {
+            "prefab": "env_tree_01",
+            "position": [
+                -45.0,
+                0.0,
+                48.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                -60.0,
+                0.0,
+                30.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": "near west wall"
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                -60.0,
+                0.0,
+                50.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                -30.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                -45.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                -60.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_fence_01",
+            "position": [
+                -22.0,
+                0.0,
+                21.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_fence_02",
+            "position": [
+                -37.0,
+                0.0,
+                21.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_01",
+            "position": [
+                22.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "NE merchant — weapon shop facing east alley"
+        },
+        {
+            "prefab": "bld_house_room_01",
+            "position": [
+                22.0,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_01",
+            "position": [
+                22.0,
+                7.900000095367432,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_02",
+            "position": [
+                25.299999237060548,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_shop_sign_01",
+            "position": [
+                25.299999237060548,
+                2.5,
+                19.5
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "weapon shop sign"
+        },
+        {
+            "prefab": "bld_house_foundation_02",
+            "position": [
+                37.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "item shop"
+        },
+        {
+            "prefab": "bld_house_room_02",
+            "position": [
+                37.0,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_02",
+            "position": [
+                37.0,
+                7.900000095367432,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                40.29999923706055,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_shop_sign_01",
+            "position": [
+                40.29999923706055,
+                2.5,
+                19.5
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_03",
+            "position": [
+                52.0,
+                0.0,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "kafra office (replaces blue tent)"
+        },
+        {
+            "prefab": "bld_house_room_03",
+            "position": [
+                52.0,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_03",
+            "position": [
+                52.0,
+                7.900000095367432,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_03",
+            "position": [
+                55.29999923706055,
+                2.809999942779541,
+                18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_shop_sign_01",
+            "position": [
+                55.29999923706055,
+                2.5,
+                19.5
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "kafra sign"
+        },
+        {
+            "prefab": "prop_banner_01",
+            "position": [
+                52.0,
+                4.309999942779541,
+                14.5
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "blue banner placeholder for kafra theme (banner_01 pivot top, top at y=4.31)"
+        },
+        {
+            "prefab": "bld_house_foundation_04",
+            "position": [
+                22.0,
+                0.0,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "row2 shop A — armor shop"
+        },
+        {
+            "prefab": "bld_house_room_04",
+            "position": [
+                22.0,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_04",
+            "position": [
+                22.0,
+                7.900000095367432,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                18.700000762939454,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_shop_sign_01",
+            "position": [
+                18.700000762939454,
+                2.5,
+                36.5
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_05",
+            "position": [
+                37.0,
+                0.0,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "row2 shop B — potion"
+        },
+        {
+            "prefab": "bld_house_room_05",
+            "position": [
+                37.0,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_05",
+            "position": [
+                37.0,
+                7.900000095367432,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_02",
+            "position": [
+                33.70000076293945,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_chimney_02",
+            "position": [
+                38.0,
+                5.619999885559082,
+                39.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_06",
+            "position": [
+                52.0,
+                0.0,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "row2 shop C — accessory"
+        },
+        {
+            "prefab": "bld_house_room_06",
+            "position": [
+                52.0,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_06",
+            "position": [
+                52.0,
+                7.900000095367432,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                48.70000076293945,
+                2.809999942779541,
+                38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_shop_sign_01",
+            "position": [
+                48.70000076293945,
+                2.5,
+                36.5
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_07",
+            "position": [
+                37.0,
+                0.0,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "row3 — back warehouse"
+        },
+        {
+            "prefab": "bld_house_room_07",
+            "position": [
+                37.0,
+                2.809999942779541,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_07",
+            "position": [
+                37.0,
+                7.900000095367432,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_01",
+            "position": [
+                52.0,
+                0.0,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_01",
+            "position": [
+                52.0,
+                2.809999942779541,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_01",
+            "position": [
+                52.0,
+                7.900000095367432,
+                56.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                29.0,
+                0.0,
+                27.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "merchant plaza stall A — between row1 and row2"
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                44.0,
+                0.0,
+                27.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "stall B"
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                29.0,
+                0.0,
+                30.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "stall C"
+        },
+        {
+            "prefab": "gen_prop_table_01",
+            "position": [
+                44.0,
+                0.0,
+                30.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "stall D"
+        },
+        {
+            "prefab": "prop_cart_01",
+            "position": [
+                55.0,
+                0.0,
+                28.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "merchant cart in plaza"
+        },
+        {
+            "prefab": "gen_prop_barrel_wood_01",
+            "position": [
+                27.0,
+                0.0,
+                27.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_barrel_wood_02",
+            "position": [
+                27.0,
+                0.0,
+                30.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_crate_01",
+            "position": [
+                42.0,
+                0.0,
+                27.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_sack_stack_01",
+            "position": [
+                42.0,
+                0.0,
+                30.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_food_bread_01",
+            "position": [
+                29.0,
+                0.75,
+                27.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_food_meat_05",
+            "position": [
+                44.0,
+                0.75,
+                27.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_food_vegetable_05",
+            "position": [
+                29.0,
+                0.75,
+                30.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_food_meat_01",
+            "position": [
+                44.0,
+                0.75,
+                30.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                60.0,
+                0.0,
+                30.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": "near east wall"
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                60.0,
+                0.0,
+                50.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_01",
+            "position": [
+                30.0,
+                0.0,
+                47.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                45.0,
+                0.0,
+                47.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                30.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                45.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                60.0,
+                0.0,
+                22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-NE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_06",
+            "position": [
+                -22.0,
+                0.0,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "SW barracks district — officer house facing inner road"
+        },
+        {
+            "prefab": "bld_house_room_06",
+            "position": [
+                -22.0,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_06",
+            "position": [
+                -22.0,
+                7.900000095367432,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_04",
+            "position": [
+                -25.299999237060548,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_banner_02",
+            "position": [
+                -22.0,
+                4.5,
+                -14.5
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "officer banner facing plaza"
+        },
+        {
+            "prefab": "bld_house_foundation_07",
+            "position": [
+                -22.0,
+                0.0,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "officer house 2 facing SW alley"
+        },
+        {
+            "prefab": "bld_house_room_07",
+            "position": [
+                -22.0,
+                2.809999942779541,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_07",
+            "position": [
+                -22.0,
+                7.900000095367432,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_02",
+            "position": [
+                -18.700000762939454,
+                2.809999942779541,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_01",
+            "position": [
+                -58.0,
+                0.0,
+                -22.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "barracks east wing along west wall"
+        },
+        {
+            "prefab": "bld_house_room_04",
+            "position": [
+                -58.0,
+                2.809999942779541,
+                -22.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_04",
+            "position": [
+                -58.0,
+                7.900000095367432,
+                -22.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_02",
+            "position": [
+                -58.0,
+                0.0,
+                -42.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "barracks 2"
+        },
+        {
+            "prefab": "bld_house_room_02",
+            "position": [
+                -58.0,
+                2.809999942779541,
+                -42.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_02",
+            "position": [
+                -58.0,
+                7.900000095367432,
+                -42.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_03",
+            "position": [
+                -58.0,
+                0.0,
+                -60.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "barracks south corner near south wall"
+        },
+        {
+            "prefab": "bld_house_room_03",
+            "position": [
+                -58.0,
+                2.809999942779541,
+                -60.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_03",
+            "position": [
+                -58.0,
+                7.900000095367432,
+                -60.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_tent_01",
+            "position": [
+                -32.0,
+                0.0,
+                -60.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "parent": "district-SW",
+            "note": "small barracks tent A (scaled down)"
+        },
+        {
+            "prefab": "bld_tent_01",
+            "position": [
+                -44.0,
+                0.0,
+                -60.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579
+            ],
+            "parent": "district-SW",
+            "note": "small barracks tent B"
+        },
+        {
+            "prefab": "bld_leanto_01",
+            "position": [
+                -32.0,
+                0.0,
+                -52.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "training shelter"
+        },
+        {
+            "prefab": "bld_leanto_01",
+            "position": [
+                -44.0,
+                0.0,
+                -52.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "armory shelter"
+        },
+        {
+            "prefab": "prop_camp_fire_01",
+            "position": [
+                -38.0,
+                0.0,
+                -42.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "parade ground center campfire"
+        },
+        {
+            "prefab": "prop_crate_01",
+            "position": [
+                -34.0,
+                0.0,
+                -38.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "training dummy stand-in (no dummy prefab)"
+        },
+        {
+            "prefab": "prop_crate_01",
+            "position": [
+                -34.0,
+                0.800000011920929,
+                -38.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_crate_01",
+            "position": [
+                -42.0,
+                0.0,
+                -38.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_crate_02",
+            "position": [
+                -42.0,
+                0.0,
+                -45.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_barrel_wood_03",
+            "position": [
+                -34.0,
+                0.0,
+                -45.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_barrel_wood_01",
+            "position": [
+                -34.0,
+                0.0,
+                -47.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "gen_prop_sack_stack_02",
+            "position": [
+                -42.0,
+                0.0,
+                -47.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -30.0,
+                0.0,
+                -36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": "parade ground corner braziers"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -46.0,
+                0.0,
+                -36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -30.0,
+                0.0,
+                -50.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                -46.0,
+                0.0,
+                -50.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                -30.0,
+                0.0,
+                -25.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_01",
+            "position": [
+                -46.0,
+                0.0,
+                -25.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                -30.0,
+                0.0,
+                -60.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_fence_01",
+            "position": [
+                -22.0,
+                0.0,
+                -22.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "prop_fence_02",
+            "position": [
+                -22.0,
+                0.0,
+                -34.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SW",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_03",
+            "position": [
+                22.0,
+                0.0,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "SE temple — inn (replaces tent inn)"
+        },
+        {
+            "prefab": "bld_house_room_05",
+            "position": [
+                22.0,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_05",
+            "position": [
+                22.0,
+                7.900000095367432,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_01",
+            "position": [
+                18.700000762939454,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_shop_sign_01",
+            "position": [
+                18.700000762939454,
+                2.5,
+                -19.5
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "inn sign"
+        },
+        {
+            "prefab": "prop_banner_01",
+            "position": [
+                22.0,
+                4.309999942779541,
+                -14.5
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "inn banner facing plaza"
+        },
+        {
+            "prefab": "bld_house_foundation_05",
+            "position": [
+                37.0,
+                0.0,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "tavern"
+        },
+        {
+            "prefab": "bld_house_room_06",
+            "position": [
+                37.0,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_06",
+            "position": [
+                37.0,
+                7.900000095367432,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_03",
+            "position": [
+                33.70000076293945,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_chimney_03",
+            "position": [
+                38.0,
+                5.619999885559082,
+                -19.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_07",
+            "position": [
+                52.0,
+                0.0,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "priest house"
+        },
+        {
+            "prefab": "bld_house_room_07",
+            "position": [
+                52.0,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_07",
+            "position": [
+                52.0,
+                7.900000095367432,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_02",
+            "position": [
+                48.70000076293945,
+                2.809999942779541,
+                -18.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_chimney_04",
+            "position": [
+                53.0,
+                5.619999885559082,
+                -17.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_foundation_01",
+            "position": [
+                22.0,
+                0.0,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "row2 — pilgrim hostel"
+        },
+        {
+            "prefab": "bld_house_room_01",
+            "position": [
+                22.0,
+                2.809999942779541,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_01",
+            "position": [
+                22.0,
+                7.900000095367432,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_door_04",
+            "position": [
+                25.299999237060548,
+                2.809999942779541,
+                -38.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_round_01",
+            "position": [
+                55.0,
+                0.0,
+                -42.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "round chapel — round room sits directly on ground"
+        },
+        {
+            "prefab": "bld_house_foundation_02",
+            "position": [
+                22.0,
+                0.0,
+                -58.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "row3 priest cottage"
+        },
+        {
+            "prefab": "bld_house_room_02",
+            "position": [
+                22.0,
+                2.809999942779541,
+                -58.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "bld_house_room_top_02",
+            "position": [
+                22.0,
+                7.900000095367432,
+                -58.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_statue_base_01",
+            "position": [
+                38.0,
+                0.0,
+                -45.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "side shrine — saint statue"
+        },
+        {
+            "prefab": "prop_statue_01",
+            "position": [
+                38.0,
+                1.1699999570846558,
+                -45.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                35.0,
+                0.0,
+                -45.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "shrine brazier W"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                41.0,
+                0.0,
+                -45.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "shrine brazier E"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                38.0,
+                0.0,
+                -42.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                38.0,
+                0.0,
+                -48.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                -28.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": "south road brazier line E (to temple)"
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                -36.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                -44.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                -52.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "prop_brazier_01",
+            "position": [
+                3.0,
+                0.0,
+                -60.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                30.0,
+                0.0,
+                -28.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                45.0,
+                0.0,
+                -28.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_01",
+            "position": [
+                60.0,
+                0.0,
+                -28.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_02",
+            "position": [
+                60.0,
+                0.0,
+                -55.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                30.0,
+                0.0,
+                -50.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                30.0,
+                0.0,
+                -22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_flower_01",
+            "position": [
+                45.0,
+                0.0,
+                -22.0
+            ],
+            "rotation": [],
+            "scale": [],
+            "parent": "district-SE",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                -5.699285507202148,
+                0.11779052019119263,
+                -17.371746063232423
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "parent": "",
+            "note": ""
+        },
+        {
+            "prefab": "env_tree_03",
+            "position": [
+                -12.279999732971192,
+                0.11779052019119263,
+                -15.039999961853028
+            ],
+            "rotation": [
+                0.0,
+                270.0,
+                0.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "parent": "",
+            "note": ""
+        }
+    ],
+    "tilings": [
+        {
+            "prefab": "env_tile_grass_01",
+            "min": [
+                -69.0,
+                0.0,
+                -69.0
+            ],
+            "max": [
+                69.0,
+                0.0,
+                69.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent": "ground",
+            "note": "140x140 grass baseline"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -18.0,
+                0.05000000074505806,
+                -18.0
+            ],
+            "max": [
+                18.0,
+                0.05000000074505806,
+                18.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent": "plaza",
+            "note": "40x40 plaza paving"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -25.5,
+                0.05000000074505806,
+                19.5
+            ],
+            "max": [
+                25.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "plaza ring road N (3 tiles wide z=19.5..25.5)"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -25.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "max": [
+                25.5,
+                0.05000000074505806,
+                -19.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "plaza ring road S"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                19.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "max": [
+                25.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "plaza ring road E"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -25.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "max": [
+                -19.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "plaza ring road W"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -1.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "max": [
+                1.5,
+                0.05000000074505806,
+                41.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "north road ring→church"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -1.5,
+                0.05000000074505806,
+                -69.0
+            ],
+            "max": [
+                1.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "south road ring→south gate"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                25.5,
+                0.05000000074505806,
+                -1.5
+            ],
+            "max": [
+                69.0,
+                0.05000000074505806,
+                1.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "east road"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -69.0,
+                0.05000000074505806,
+                -1.5
+            ],
+            "max": [
+                -25.5,
+                0.05000000074505806,
+                1.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "west road"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                25.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "max": [
+                62.0,
+                0.05000000074505806,
+                28.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "NE diagonal radial — uses E+N legs (E branch from ring)"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                25.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "max": [
+                28.5,
+                0.05000000074505806,
+                62.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "NE radial north leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -62.0,
+                0.05000000074505806,
+                25.5
+            ],
+            "max": [
+                -25.5,
+                0.05000000074505806,
+                28.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "NW radial east leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -28.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "max": [
+                -25.5,
+                0.05000000074505806,
+                62.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "NW radial north leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                25.5,
+                0.05000000074505806,
+                -28.5
+            ],
+            "max": [
+                62.0,
+                0.05000000074505806,
+                -25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "SE radial east leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                25.5,
+                0.05000000074505806,
+                -62.0
+            ],
+            "max": [
+                28.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "SE radial south leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -62.0,
+                0.05000000074505806,
+                -28.5
+            ],
+            "max": [
+                -25.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "SW radial west leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -28.5,
+                0.05000000074505806,
+                -62.0
+            ],
+            "max": [
+                -25.5,
+                0.05000000074505806,
+                -25.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "SW radial south leg"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -66.0,
+                0.05000000074505806,
+                64.5
+            ],
+            "max": [
+                66.0,
+                0.05000000074505806,
+                67.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "wall patrol road N"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -66.0,
+                0.05000000074505806,
+                -67.5
+            ],
+            "max": [
+                66.0,
+                0.05000000074505806,
+                -64.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "wall patrol road S"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                64.5,
+                0.05000000074505806,
+                -66.0
+            ],
+            "max": [
+                67.5,
+                0.05000000074505806,
+                66.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "wall patrol road E"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -67.5,
+                0.05000000074505806,
+                -66.0
+            ],
+            "max": [
+                -64.5,
+                0.05000000074505806,
+                66.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "streets",
+            "note": "wall patrol road W"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -7.5,
+                0.05000000074505806,
+                41.0
+            ],
+            "max": [
+                7.5,
+                0.05000000074505806,
+                42.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "landmark-church",
+            "note": "church courtyard front"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -10.5,
+                0.05000000074505806,
+                30.0
+            ],
+            "max": [
+                10.5,
+                0.05000000074505806,
+                41.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "landmark-church",
+            "note": "church courtyard wider plaza (20x12)"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                -58.0,
+                0.05000000074505806,
+                28.0
+            ],
+            "max": [
+                -22.0,
+                0.05000000074505806,
+                28.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-NW",
+            "note": "NW alley row1↔row2"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                -58.0,
+                0.05000000074505806,
+                48.0
+            ],
+            "max": [
+                -22.0,
+                0.05000000074505806,
+                48.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-NW",
+            "note": "NW alley row2↔row3"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                22.0,
+                0.05000000074505806,
+                28.0
+            ],
+            "max": [
+                58.0,
+                0.05000000074505806,
+                28.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-NE",
+            "note": "NE alley row1↔row2"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                22.0,
+                0.05000000074505806,
+                48.0
+            ],
+            "max": [
+                58.0,
+                0.05000000074505806,
+                48.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-NE",
+            "note": "NE alley row2↔row3"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                -58.0,
+                0.05000000074505806,
+                -28.0
+            ],
+            "max": [
+                -22.0,
+                0.05000000074505806,
+                -28.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-SW",
+            "note": "SW alley"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                22.0,
+                0.05000000074505806,
+                -28.0
+            ],
+            "max": [
+                58.0,
+                0.05000000074505806,
+                -28.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-SE",
+            "note": "SE alley row1↔row2"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                22.0,
+                0.05000000074505806,
+                -48.0
+            ],
+            "max": [
+                58.0,
+                0.05000000074505806,
+                -48.0
+            ],
+            "step": [
+                3.0,
+                0.0,
+                0.0
+            ],
+            "rotation": [],
+            "parent": "district-SE",
+            "note": "SE alley row2↔row3"
+        },
+        {
+            "prefab": "env_path_cobble_02",
+            "min": [
+                25.5,
+                0.05000000074505806,
+                25.5
+            ],
+            "max": [
+                55.5,
+                0.05000000074505806,
+                31.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "district-NE",
+            "note": "NE merchant plaza paving (between rows)"
+        },
+        {
+            "prefab": "env_path_dirt_01",
+            "min": [
+                -49.5,
+                0.05000000074505806,
+                -49.5
+            ],
+            "max": [
+                -28.5,
+                0.05000000074505806,
+                -28.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "district-SW",
+            "note": "SW parade ground (dirt rectangle ~21x21)"
+        },
+        {
+            "prefab": "env_path_cobble_01",
+            "min": [
+                -13.5,
+                0.05000000074505806,
+                52.5
+            ],
+            "max": [
+                13.5,
+                0.05000000074505806,
+                64.5
+            ],
+            "step": [
+                3.0,
+                0.0,
+                3.0
+            ],
+            "rotation": [],
+            "parent": "landmark-church",
+            "note": "graveyard cobble path behind nave"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                70.0,
+                0.0,
+                9.0
+            ],
+            "max": [
+                70.0,
+                0.0,
+                32.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "east wall N1 (between flank z=6 and midtower z=36)"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                70.0,
+                0.0,
+                39.0
+            ],
+            "max": [
+                70.0,
+                0.0,
+                62.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "east wall N2 (between midtower z=36 and corner z=67.5)"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                70.0,
+                0.0,
+                -32.0
+            ],
+            "max": [
+                70.0,
+                0.0,
+                -9.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "east wall S1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                70.0,
+                0.0,
+                -62.0
+            ],
+            "max": [
+                70.0,
+                0.0,
+                -39.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "east wall S2"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -70.0,
+                0.0,
+                9.0
+            ],
+            "max": [
+                -70.0,
+                0.0,
+                32.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "west wall N1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -70.0,
+                0.0,
+                39.0
+            ],
+            "max": [
+                -70.0,
+                0.0,
+                62.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "west wall N2"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -70.0,
+                0.0,
+                -32.0
+            ],
+            "max": [
+                -70.0,
+                0.0,
+                -9.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "west wall S1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -70.0,
+                0.0,
+                -62.0
+            ],
+            "max": [
+                -70.0,
+                0.0,
+                -39.0
+            ],
+            "step": [
+                0.0,
+                0.0,
+                5.300000190734863
+            ],
+            "rotation": [
+                0.0,
+                180.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "west wall S2"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                9.0,
+                0.0,
+                70.0
+            ],
+            "max": [
+                32.0,
+                0.0,
+                70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "north wall E1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                39.0,
+                0.0,
+                70.0
+            ],
+            "max": [
+                62.0,
+                0.0,
+                70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "north wall E2"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -32.0,
+                0.0,
+                70.0
+            ],
+            "max": [
+                -9.0,
+                0.0,
+                70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "north wall W1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -62.0,
+                0.0,
+                70.0
+            ],
+            "max": [
+                -39.0,
+                0.0,
+                70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "north wall W2"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                9.0,
+                0.0,
+                -70.0
+            ],
+            "max": [
+                32.0,
+                0.0,
+                -70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "south wall E1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                39.0,
+                0.0,
+                -70.0
+            ],
+            "max": [
+                62.0,
+                0.0,
+                -70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "south wall E2"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -32.0,
+                0.0,
+                -70.0
+            ],
+            "max": [
+                -9.0,
+                0.0,
+                -70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "south wall W1"
+        },
+        {
+            "prefab": "bld_castle_wall_01",
+            "min": [
+                -62.0,
+                0.0,
+                -70.0
+            ],
+            "max": [
+                -39.0,
+                0.0,
+                -70.0
+            ],
+            "step": [
+                5.300000190734863,
+                0.0,
+                0.0
+            ],
+            "rotation": [
+                0.0,
+                -90.0,
+                0.0
+            ],
+            "parent": "walls",
+            "note": "south wall W2"
+        }
+    ]
 }
