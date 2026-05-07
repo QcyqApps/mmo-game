@@ -42,6 +42,14 @@ namespace MmoGame.Editor
         readonly Dictionary<string, bool> _subFold = new();
         bool _waitingForPreviews;
 
+        // Curated palette (user-defined categories) vs full Synty catalog.
+        enum PaletteMode { Curated, AllSynty }
+        PaletteMode _paletteMode = PaletteMode.Curated;
+        MapPaletteCollection _palette;
+        const string PaletteAssetPath = "Assets/Resources/MapPalette.asset";
+        int _objectPickerCategoryIdx = -1;
+        int _objectPickerControlId;
+
         // ----- inspector state -----
         int _selectedPieceIdx = -1;
         int _selectedTilingIdx = -1;
@@ -64,9 +72,27 @@ namespace MmoGame.Editor
         void OnEnable()
         {
             RefreshCatalog();
+            EnsurePaletteAsset();
             SceneView.duringSceneGui += OnSceneGUI;
             Selection.selectionChanged += OnSelectionChanged;
             Undo.undoRedoPerformed += Repaint;
+        }
+
+        void EnsurePaletteAsset()
+        {
+            _palette = AssetDatabase.LoadAssetAtPath<MapPaletteCollection>(PaletteAssetPath);
+            if (_palette != null) return;
+
+            if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+                AssetDatabase.CreateFolder("Assets", "Resources");
+            _palette = ScriptableObject.CreateInstance<MapPaletteCollection>();
+            _palette.categories.Add(new MapPaletteCollection.Category { name = "Houses" });
+            _palette.categories.Add(new MapPaletteCollection.Category { name = "Walls & Gates" });
+            _palette.categories.Add(new MapPaletteCollection.Category { name = "Roads & Tiles" });
+            _palette.categories.Add(new MapPaletteCollection.Category { name = "Trees & Nature" });
+            _palette.categories.Add(new MapPaletteCollection.Category { name = "Props" });
+            AssetDatabase.CreateAsset(_palette, PaletteAssetPath);
+            AssetDatabase.SaveAssets();
         }
 
         void OnDisable()
@@ -157,15 +183,16 @@ namespace MmoGame.Editor
 
         void DrawLeftPanel()
         {
-            EditorGUILayout.BeginVertical(GUILayout.Width(290));
+            EditorGUILayout.BeginVertical(GUILayout.Width(310));
 
             EditorGUILayout.LabelField("Palette", EditorStyles.boldLabel);
 
-            // Search + category
-            EditorGUILayout.BeginHorizontal();
+            // Mode toggle: curated user palette vs full Synty catalog.
+            _paletteMode = (PaletteMode)GUILayout.Toolbar((int)_paletteMode,
+                new[] { "Curated", "All Synty" }, GUILayout.Height(20));
+
+            // Search
             _searchFilter = EditorGUILayout.TextField(_searchFilter, EditorStyles.toolbarSearchField);
-            EditorGUILayout.EndHorizontal();
-            _categoryFilterIdx = EditorGUILayout.Popup("Category", _categoryFilterIdx, _categories.ToArray());
 
             // Place options
             EditorGUILayout.Space(2);
@@ -186,20 +213,264 @@ namespace MmoGame.Editor
             }
 
             EditorGUILayout.Space(2);
-            var filtered = FilteredCatalog().ToList();
-            EditorGUILayout.LabelField($"Prefabs ({filtered.Count})", EditorStyles.miniBoldLabel);
-
+            _waitingForPreviews = false;
             _paletteScroll = EditorGUILayout.BeginScrollView(_paletteScroll, GUILayout.ExpandHeight(true));
 
+            if (_paletteMode == PaletteMode.Curated)
+                DrawCuratedPalette();
+            else
+                DrawSyntyCatalog();
+
+            EditorGUILayout.EndScrollView();
+
+            // Bottom toolbar — only for curated mode.
+            if (_paletteMode == PaletteMode.Curated)
+            {
+                EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button("+ Category")) AddPaletteCategory();
+                if (GUILayout.Button("Edit Asset")) Selection.activeObject = _palette;
+                EditorGUILayout.EndHorizontal();
+            }
+
+            HandleObjectPickerSelection();
+
+            // Repaint while Unity is still rendering thumbnails so they pop in.
+            if (_waitingForPreviews) Repaint();
+
+            EditorGUILayout.EndVertical();
+        }
+
+        // -----------------------------------------------------------------
+        //  Curated palette — user-defined categories with drag-drop targets
+        // -----------------------------------------------------------------
+
+        void DrawCuratedPalette()
+        {
+            if (_palette == null || _palette.categories == null || _palette.categories.Count == 0)
+            {
+                EditorGUILayout.HelpBox(
+                    "No categories yet.\nClick '+ Category' below, or drag prefabs from Project window onto a category header.",
+                    MessageType.Info);
+                return;
+            }
+
+            string search = _searchFilter?.Trim().ToLowerInvariant() ?? "";
+            bool forceExpand = search.Length > 0;
+
+            for (int ci = 0; ci < _palette.categories.Count; ci++)
+            {
+                var cat = _palette.categories[ci];
+                if (cat == null) continue;
+
+                // Filter contents by search
+                var prefabs = cat.prefabs?.Where(p => p != null &&
+                    (search.Length == 0 || p.name.ToLowerInvariant().Contains(search))).ToList()
+                    ?? new List<GameObject>();
+
+                bool isOpen = forceExpand || cat.expanded;
+                var headerStyle = new GUIStyle(EditorStyles.foldoutHeader) { fontStyle = FontStyle.Bold };
+
+                EditorGUILayout.BeginHorizontal();
+                bool nowOpen = EditorGUILayout.Foldout(isOpen, $"{cat.name}  ({prefabs.Count})", true, headerStyle);
+                if (!forceExpand && nowOpen != isOpen) { cat.expanded = nowOpen; EditorUtility.SetDirty(_palette); }
+
+                if (GUILayout.Button("+", GUILayout.Width(22))) OpenObjectPickerForCategory(ci);
+                if (GUILayout.Button("✎", GUILayout.Width(22))) RenamePaletteCategory(ci);
+                GUI.backgroundColor = new Color(1f, 0.7f, 0.7f);
+                if (GUILayout.Button("×", GUILayout.Width(22))) { DeletePaletteCategory(ci); GUI.backgroundColor = Color.white; EditorGUILayout.EndHorizontal(); break; }
+                GUI.backgroundColor = Color.white;
+                EditorGUILayout.EndHorizontal();
+
+                // Drop zone — accepts drags onto either the header or the body of an open category.
+                var lastRect = GUILayoutUtility.GetLastRect();
+                HandleCategoryDrop(lastRect, ci);
+
+                if (!nowOpen) continue;
+
+                EditorGUI.indentLevel++;
+                if (prefabs.Count == 0)
+                {
+                    EditorGUILayout.HelpBox("Drag prefabs here from the Project window, or click [+].", MessageType.None);
+                }
+                else
+                {
+                    foreach (var p in prefabs)
+                        DrawCuratedPrefabRow(cat, p);
+                }
+                EditorGUI.indentLevel--;
+            }
+        }
+
+        void DrawCuratedPrefabRow(MapPaletteCollection.Category cat, GameObject prefab)
+        {
+            const float thumbSize = 44f;
+            var entry = _catalog.FirstOrDefault(e => e.prefab == prefab);
+            string logical = entry?.name;
+            bool resolved = logical != null;
+            bool active = resolved && logical == _placePrefabName;
+
+            var bg = GUI.backgroundColor;
+            if (active) GUI.backgroundColor = new Color(0.4f, 0.8f, 1f);
+            else if (!resolved) GUI.backgroundColor = new Color(1f, 0.85f, 0.6f);
+
+            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(thumbSize + 4));
+
+            var thumbRect = GUILayoutUtility.GetRect(thumbSize, thumbSize, GUILayout.Width(thumbSize), GUILayout.Height(thumbSize));
+            var preview = AssetPreview.GetAssetPreview(prefab);
+            if (preview == null && AssetPreview.IsLoadingAssetPreview(prefab.GetInstanceID())) _waitingForPreviews = true;
+            if (preview == null) preview = AssetPreview.GetMiniThumbnail(prefab);
+            if (preview != null) GUI.DrawTexture(thumbRect, preview, ScaleMode.ScaleToFit);
+
+            string label = resolved
+                ? $"{logical}\n  {entry.size.x:F1} × {entry.size.y:F1} × {entry.size.z:F1}"
+                : $"{prefab.name}\n  ⚠ not in Synty catalog (rebuild?)";
+
+            if (GUILayout.Button(label, EditorStyles.label, GUILayout.Height(thumbSize)))
+            {
+                if (resolved)
+                {
+                    _placePrefabName = active ? null : logical;
+                    SceneView.RepaintAll();
+                }
+                else
+                {
+                    EditorUtility.DisplayDialog("Prefab not in catalog",
+                        $"'{prefab.name}' isn't registered in MapPrefabRegistry. Run 'Rebuild Catalog' first.", "OK");
+                }
+            }
+
+            GUI.backgroundColor = bg;
+            if (GUILayout.Button("×", GUILayout.Width(22), GUILayout.Height(thumbSize)))
+            {
+                cat.prefabs.Remove(prefab);
+                EditorUtility.SetDirty(_palette);
+            }
+
+            EditorGUILayout.EndHorizontal();
+            GUI.backgroundColor = bg;
+        }
+
+        void HandleCategoryDrop(Rect dropRect, int categoryIdx)
+        {
+            var e = Event.current;
+            if (!dropRect.Contains(e.mousePosition)) return;
+            if (e.type != EventType.DragUpdated && e.type != EventType.DragPerform) return;
+
+            var dragged = DragAndDrop.objectReferences.OfType<GameObject>()
+                .Where(go => PrefabUtility.IsPartOfPrefabAsset(go))
+                .ToArray();
+            if (dragged.Length == 0) return;
+
+            DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+            if (e.type == EventType.DragPerform)
+            {
+                DragAndDrop.AcceptDrag();
+                AddPrefabsToCategory(categoryIdx, dragged);
+                e.Use();
+            }
+        }
+
+        void AddPrefabsToCategory(int categoryIdx, IEnumerable<GameObject> prefabs)
+        {
+            var cat = _palette.categories[categoryIdx];
+            int added = 0;
+            foreach (var p in prefabs)
+            {
+                if (p == null) continue;
+                if (cat.prefabs.Contains(p)) continue;
+                cat.prefabs.Add(p);
+                added++;
+            }
+            if (added > 0)
+            {
+                cat.expanded = true;
+                EditorUtility.SetDirty(_palette);
+                AssetDatabase.SaveAssets();
+                Repaint();
+            }
+        }
+
+        void OpenObjectPickerForCategory(int categoryIdx)
+        {
+            _objectPickerCategoryIdx = categoryIdx;
+            _objectPickerControlId = GUIUtility.GetControlID(FocusType.Passive) + 100;
+            EditorGUIUtility.ShowObjectPicker<GameObject>(null, false, "t:Prefab", _objectPickerControlId);
+        }
+
+        void HandleObjectPickerSelection()
+        {
+            if (_objectPickerCategoryIdx < 0) return;
+            var e = Event.current;
+            if (e.type != EventType.ExecuteCommand) return;
+            if (e.commandName != "ObjectSelectorClosed") return;
+            if (EditorGUIUtility.GetObjectPickerControlID() != _objectPickerControlId) return;
+
+            var picked = EditorGUIUtility.GetObjectPickerObject() as GameObject;
+            if (picked != null) AddPrefabsToCategory(_objectPickerCategoryIdx, new[] { picked });
+            _objectPickerCategoryIdx = -1;
+        }
+
+        void AddPaletteCategory()
+        {
+            MapEditorTextPrompt.Open("New category name", "Untitled", name =>
+            {
+                if (string.IsNullOrWhiteSpace(name)) return;
+                _palette.categories.Add(new MapPaletteCollection.Category { name = name.Trim(), expanded = true });
+                EditorUtility.SetDirty(_palette);
+                AssetDatabase.SaveAssets();
+                Repaint();
+            });
+        }
+
+        void RenamePaletteCategory(int idx)
+        {
+            var cat = _palette.categories[idx];
+            MapEditorTextPrompt.Open("Rename category", cat.name, name =>
+            {
+                if (string.IsNullOrWhiteSpace(name)) return;
+                cat.name = name.Trim();
+                EditorUtility.SetDirty(_palette);
+                AssetDatabase.SaveAssets();
+                Repaint();
+            });
+        }
+
+        void DeletePaletteCategory(int idx)
+        {
+            var cat = _palette.categories[idx];
+            if (!EditorUtility.DisplayDialog("Delete category",
+                $"Delete category '{cat.name}' and remove its {cat.prefabs?.Count ?? 0} prefab references?",
+                "Delete", "Cancel")) return;
+            _palette.categories.RemoveAt(idx);
+            EditorUtility.SetDirty(_palette);
+            AssetDatabase.SaveAssets();
+            Repaint();
+        }
+
+        // -----------------------------------------------------------------
+        //  Full Synty catalog — fallback browse mode
+        // -----------------------------------------------------------------
+
+        void DrawSyntyCatalog()
+        {
+            var filtered = FilteredCatalog().ToList();
+            _categoryFilterIdx = EditorGUILayout.Popup("Category", _categoryFilterIdx, _categories.ToArray());
+            EditorGUILayout.LabelField($"{filtered.Count} prefabs", EditorStyles.miniLabel);
+
             bool forceExpand = !string.IsNullOrEmpty(_searchFilter?.Trim());
-            _waitingForPreviews = false;
 
             foreach (var sub in filtered.GroupBy(e => SubcategoryOf(e.name)).OrderBy(g => g.Key))
             {
                 bool isOpen = forceExpand || _subFold.GetValueOrDefault(sub.Key, false);
                 var headerStyle = new GUIStyle(EditorStyles.foldout) { fontStyle = FontStyle.Bold };
+
+                EditorGUILayout.BeginHorizontal();
                 bool nowOpen = EditorGUILayout.Foldout(isOpen, $"{sub.Key}  ({sub.Count()})", true, headerStyle);
                 if (!forceExpand && nowOpen != isOpen) _subFold[sub.Key] = nowOpen;
+                // Quick "add all in subcategory to..." button
+                if (GUILayout.Button("⤓", GUILayout.Width(24))) ShowAddSubcategoryMenu(sub.ToList());
+                EditorGUILayout.EndHorizontal();
+
                 if (!nowOpen) continue;
 
                 EditorGUI.indentLevel++;
@@ -207,12 +478,30 @@ namespace MmoGame.Editor
                     DrawPrefabRow(entry);
                 EditorGUI.indentLevel--;
             }
-            EditorGUILayout.EndScrollView();
+        }
 
-            // Repaint while Unity is still rendering thumbnails so they pop in.
-            if (_waitingForPreviews) Repaint();
-
-            EditorGUILayout.EndVertical();
+        void ShowAddSubcategoryMenu(List<SyntyCatalogScanner.CatalogEntry> entries)
+        {
+            var menu = new GenericMenu();
+            menu.AddDisabledItem(new GUIContent($"Add {entries.Count} prefab(s) to..."));
+            menu.AddSeparator("");
+            for (int i = 0; i < _palette.categories.Count; i++)
+            {
+                int idx = i; // capture
+                menu.AddItem(new GUIContent(_palette.categories[i].name), false,
+                    () => AddPrefabsToCategory(idx, entries.Select(e => e.prefab)));
+            }
+            menu.AddSeparator("");
+            menu.AddItem(new GUIContent("(new category...)"), false, () =>
+            {
+                MapEditorTextPrompt.Open("New category name", "Untitled", name =>
+                {
+                    if (string.IsNullOrWhiteSpace(name)) return;
+                    _palette.categories.Add(new MapPaletteCollection.Category { name = name.Trim(), expanded = true });
+                    AddPrefabsToCategory(_palette.categories.Count - 1, entries.Select(e => e.prefab));
+                });
+            });
+            menu.ShowAsContext();
         }
 
         void DrawPrefabRow(SyntyCatalogScanner.CatalogEntry entry)
