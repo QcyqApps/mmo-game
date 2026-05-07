@@ -1,7 +1,9 @@
 {
     "name": "MmoGame",
     "rootNamespace": "MmoGame",
-    "references": [],
+    "references": [
+        "NakamaRuntime"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
