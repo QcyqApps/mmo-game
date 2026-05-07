@@ -5,9 +5,11 @@ using FishNet.Managing.Object;
 using FishNet.Object;
 using FishNet.Transporting.Tugboat;
 using MmoGame.Gameplay;
+using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 namespace MmoGame.Editor
@@ -38,6 +40,26 @@ namespace MmoGame.Editor
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveOpenScenes();
             Debug.Log("[NetworkSetup] Done. Press Play to host; second instance can join via --connect 127.0.0.1.");
+        }
+
+        [MenuItem("MmoGame/Bake NavMesh")]
+        public static void BakeNavMesh()
+        {
+            var surfaceGo = GameObject.Find("[NavMesh]");
+            if (surfaceGo == null)
+            {
+                surfaceGo = new GameObject("[NavMesh]");
+                surfaceGo.AddComponent<NavMeshSurface>();
+            }
+            var surface = surfaceGo.GetComponent<NavMeshSurface>() ?? surfaceGo.AddComponent<NavMeshSurface>();
+            surface.collectObjects = CollectObjects.All;
+            surface.useGeometry = NavMeshCollectGeometry.RenderMeshes;
+            surface.BuildNavMesh();
+
+            EditorUtility.SetDirty(surfaceGo);
+            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+            EditorSceneManager.SaveOpenScenes();
+            Debug.Log("[NetworkSetup] NavMesh baked. Walkable area generated from scene render meshes.");
         }
 
         [MenuItem("MmoGame/Setup Camera")]
@@ -109,6 +131,7 @@ namespace MmoGame.Editor
                 knightInstance.transform.localScale = Vector3.one;
 
                 EnsureRootCollider(contents);
+                EnsureNavMeshAgent(contents);
 
                 PrefabUtility.SaveAsPrefabAsset(contents, PlayerPrefabPath);
             }
@@ -141,6 +164,19 @@ namespace MmoGame.Editor
             col.radius = 0.4f;
             col.center = new Vector3(0f, 1f, 0f);
             col.isTrigger = false;
+        }
+
+        static void EnsureNavMeshAgent(GameObject root)
+        {
+            var agent = root.GetComponent<NavMeshAgent>();
+            if (agent == null) agent = root.AddComponent<NavMeshAgent>();
+            agent.height = 2f;
+            agent.radius = 0.4f;
+            agent.baseOffset = 0f;
+            agent.speed = 5f;
+            agent.angularSpeed = 360f;
+            agent.acceleration = 30f;
+            agent.stoppingDistance = 0.1f;
         }
 
         static void EnsureFolders()

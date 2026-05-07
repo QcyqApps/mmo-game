@@ -3,7 +3,8 @@
     "rootNamespace": "MmoGame.Editor",
     "references": [
         "MmoGame",
-        "FishNet.Runtime"
+        "FishNet.Runtime",
+        "Unity.AI.Navigation"
     ],
     "includePlatforms": [
         "Editor"

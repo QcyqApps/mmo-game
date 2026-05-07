@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4375670952495268919}
   - component: {fileID: 1738947540925680744}
   - component: {fileID: 5417653849189020246}
+  - component: {fileID: 4365299255189475706}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6563246351489321773}
+  - {fileID: 77359950328669794}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3254227904280608587
@@ -178,7 +179,32 @@ MonoBehaviour:
   _addedNetworkObject: {fileID: 4375670952495268919}
   _networkObjectCache: {fileID: 0}
   speed: 5
---- !u!1001 &6564829030681947007
+  angularSpeed: 360
+  stoppingDistance: 0.1
+  navSampleRadius: 2
+--- !u!195 &4365299255189475706
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148719329407434226}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 5
+  m_Acceleration: 30
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0.1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!1001 &80350694014502448
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -235,8 +261,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b742818ae249a64dad8ff314e13200c, type: 3}
---- !u!4 &6563246351489321773 stripped
+--- !u!4 &77359950328669794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4399080677466194, guid: 2b742818ae249a64dad8ff314e13200c, type: 3}
-  m_PrefabInstance: {fileID: 6564829030681947007}
+  m_PrefabInstance: {fileID: 80350694014502448}
   m_PrefabAsset: {fileID: 0}

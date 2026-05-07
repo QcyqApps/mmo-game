@@ -15,6 +15,15 @@ Format jednego wpisu:
 
 ---
 
+### 2026-05-07 — Synty meshes blokują runtime NavMesh build na Android
+
+**Kontekst:** `MapLoader` w runtime'ie wywołuje `NavMeshSurface.BuildNavMesh()` po instantiate map pieces. W Editor playmode generuje 15× warning `RuntimeNavMeshBuilder: Source mesh ... does not allow read access. This will work in playmode in the editor but not in player`.
+**Problem:** Synty paczki importują meshes z `isReadable=false` (default Unity import setting). Runtime NavMesh build wymaga CPU read access do mesh data. Działa w Editor (Unity hostuje data side-band), ale standalone Player build nie ma access — bake fail bez NavMesh = brak walkable area.
+**Rozwiązanie (TBD):** dwie ścieżki:
+- (a) Editor script iteruje Synty `*.asset` ImportSettings, ustawia `isReadable=true`, reimport. Acceptable runtime memory cost (CPU copy of meshes).
+- (b) Pre-bake NavMesh w editor-time + serializuj `NavMeshData` jako asset per mapę. `MapLoader` w runtime instaluje pre-bakowany NavMesh przez `NavMesh.AddNavMeshData(...)` zamiast Build w runtime.
+**Wniosek:** mvp w Editor działa, ale przed pierwszym Android buildem (Tydzień 6 / późniejsze) trzeba wybrać jedną ścieżkę. (b) jest production-grade ale wymaga edit-time virtual instantiation map.
+
 ### 2026-05-07 — Docker Compose YAML `>` folded scalar z mieszanym wcięciem psuje shell
 
 **Kontekst:** Definicja `entrypoint:` Nakamy w `Server/docker-compose.yml` z `>` folded scalar i kontynuacjami flag wcięte głębiej dla czytelności:

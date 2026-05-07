@@ -1,4 +1,6 @@
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace MmoGame.World
 {
@@ -56,8 +58,17 @@ namespace MmoGame.World
                 spawned++;
             }
 
-            Debug.Log($"[MapLoader] {manifest.name ?? mapName}: spawned {spawned}, missing {missing}.");
+            BakeNavMesh(root);
+            Debug.Log($"[MapLoader] {manifest.name ?? mapName}: spawned {spawned}, missing {missing}, navmesh baked.");
             return root;
+        }
+
+        static void BakeNavMesh(GameObject root)
+        {
+            var surface = root.AddComponent<NavMeshSurface>();
+            surface.collectObjects = CollectObjects.All;
+            surface.useGeometry = NavMeshCollectGeometry.RenderMeshes;
+            surface.BuildNavMesh();
         }
 
         static Vector3 ToVec3(float[] arr, Vector3 fallback)
