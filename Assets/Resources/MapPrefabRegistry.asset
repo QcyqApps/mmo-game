@@ -13,27 +13,849 @@ MonoBehaviour:
   m_Name: MapPrefabRegistry
   m_EditorClassIdentifier: MmoGame::MmoGame.World.MapPrefabRegistry
   entries:
-  - name: ground_grass_tile
-    prefab: {fileID: 128328, guid: bc6b7d6f0fb98544a873a3d69729fe66, type: 3}
-  - name: ground_mound
-    prefab: {fileID: 195246, guid: f0d166010146cdc4eb7c784d54eda812, type: 3}
-  - name: flower
-    prefab: {fileID: 191548, guid: 122f65ce20a93d54d9dcba16303e0785, type: 3}
-  - name: path_cobble
-    prefab: {fileID: 161712, guid: cd63e7ed2d501564ebcb6cd6729e699e, type: 3}
-  - name: tent_blue
-    prefab: {fileID: 162728, guid: 33adbca995ce9484f9258d275aabac10, type: 3}
-  - name: tent_red
-    prefab: {fileID: 193672, guid: d8e888ed02072774198f7f7ce47d5f50, type: 3}
-  - name: rockwall_straight
-    prefab: {fileID: 148952, guid: a5bb8fdb18a5fce4a934aac86e8ec191, type: 3}
-  - name: rockwall_archway
+  - name: bld_arrow_slit_01
+    prefab: {fileID: 149544, guid: ab129feaa0ed57d48bb75ae596344439, type: 3}
+  - name: bld_arrow_slit_01_snow
+    prefab: {fileID: 131918, guid: 5936ff6c856c6a347b9d2f3a555cb1b6, type: 3}
+  - name: bld_castle_arrow_slit_01
+    prefab: {fileID: 144748, guid: b8087cfa32e21d2498d86305bbdbce25, type: 3}
+  - name: bld_castle_door_01
+    prefab: {fileID: 169348, guid: 89ece42cbeee51544aacc46371afce2a, type: 3}
+  - name: bld_castle_door_01_snow
+    prefab: {fileID: 197034, guid: 7af619afd99c7f840908922c2a1356f1, type: 3}
+  - name: bld_castle_flag_01
+    prefab: {fileID: 189078, guid: 909819cb4101f98478848711bc2cba21, type: 3}
+  - name: bld_castle_flagpole_01
+    prefab: {fileID: 187248, guid: d27315a8551b44044a8042a19932c483, type: 3}
+  - name: bld_castle_iron_gate_01
+    prefab: {fileID: 169488, guid: 0a5ef1aaf47f03547983772b8f1f3a80, type: 3}
+  - name: bld_castle_pillar_01
+    prefab: {fileID: 119398, guid: c62ebd6969ff1124792ffb1a88aa399a, type: 3}
+  - name: bld_castle_roof_spire_01
+    prefab: {fileID: 192576, guid: 2678ae1982dc1b74b99abd46d8ccb50c, type: 3}
+  - name: bld_castle_roof_spire_01_snow
+    prefab: {fileID: 163314, guid: fb1c5e78ea65052439ebf76d0b3377ad, type: 3}
+  - name: bld_castle_tower_01
+    prefab: {fileID: 147310, guid: b1ad8ef6890687249a641abef8e26baf, type: 3}
+  - name: bld_castle_tower_01_lite
+    prefab: {fileID: 109282, guid: cd46f6361746af34ca29dec77bee51a2, type: 3}
+  - name: bld_castle_tower_01_snow
+    prefab: {fileID: 159058, guid: 4adcda4b247da3045975333b10813005, type: 3}
+  - name: bld_castle_tower_02
+    prefab: {fileID: 148618, guid: 092595d39c7f3fe40bc19e13323f824d, type: 3}
+  - name: bld_castle_tower_02_lite
+    prefab: {fileID: 146162, guid: 608f0ba07d26e7642b8d36d0e0f851e6, type: 3}
+  - name: bld_castle_tower_03
+    prefab: {fileID: 100546, guid: 5a16fbe844697354eaafd84247d55985, type: 3}
+  - name: bld_castle_tower_03_lite
+    prefab: {fileID: 195416, guid: c030142463ad580429b680ac742166ba, type: 3}
+  - name: bld_castle_tower_04
+    prefab: {fileID: 158236, guid: 6cc63cba898ace244bba643423dfda2e, type: 3}
+  - name: bld_castle_tower_04_lite
+    prefab: {fileID: 179944, guid: 73bc14e443072aa4d99d7c246a51370d, type: 3}
+  - name: bld_castle_tower_base_01
+    prefab: {fileID: 178616, guid: b6f3dfbb5c58a34489071b09c45b8f94, type: 3}
+  - name: bld_castle_tower_base_02
+    prefab: {fileID: 186884, guid: 0c66159e6cbb60a42831373af849b686, type: 3}
+  - name: bld_castle_tower_mini_01
+    prefab: {fileID: 137834, guid: 98ab284b689f29148afb10f5b7f09992, type: 3}
+  - name: bld_castle_tower_mini_01_snow
+    prefab: {fileID: 143396, guid: a5d0481d2421b38458d7a3d90a2f39e0, type: 3}
+  - name: bld_castle_tower_mini_02
+    prefab: {fileID: 152396, guid: 858952fd9f8e74140bf57e65ddc472ed, type: 3}
+  - name: bld_castle_tower_mini_02_snow
+    prefab: {fileID: 148850, guid: a549a6de16f98f84ebe678daba85b04e, type: 3}
+  - name: bld_castle_tower_round_01
+    prefab: {fileID: 176788, guid: a403260d581bded4d85f723fd39eb456, type: 3}
+  - name: bld_castle_tower_round_01_lite
+    prefab: {fileID: 146884, guid: 59fda38c2143a264fb1ca61086abcc96, type: 3}
+  - name: bld_castle_tower_round_02
+    prefab: {fileID: 112350, guid: a6904f5656dfe8e49bd1fae1497ddf07, type: 3}
+  - name: bld_castle_tower_round_02_lite
+    prefab: {fileID: 158468, guid: 875f1554fc0f55443b16d1cb0b912e64, type: 3}
+  - name: bld_castle_tower_round_top_01
+    prefab: {fileID: 125690, guid: fa993d692bbb7fe4eadefb231970e8b7, type: 3}
+  - name: bld_castle_tower_round_top_01_lite
+    prefab: {fileID: 146086, guid: b2ccf63e5a3aab9438ac359089017a46, type: 3}
+  - name: bld_castle_tower_round_top_01_snow
+    prefab: {fileID: 104416, guid: a860a8efd9a034241b205a8ceaa511f7, type: 3}
+  - name: bld_castle_tower_top_01
+    prefab: {fileID: 141476, guid: 20980883898f4704f86e6d74b75682ef, type: 3}
+  - name: bld_castle_tower_top_01_lite
+    prefab: {fileID: 112246, guid: d43900a9d4c0e224eaf62e1d618dd64a, type: 3}
+  - name: bld_castle_tower_top_01_snow
+    prefab: {fileID: 125272, guid: bfccd2d26f986ee43bc69f48b20da058, type: 3}
+  - name: bld_castle_tower_wall_top_01
+    prefab: {fileID: 153326, guid: 576b6d70e3da01b489b5b99e260ddc93, type: 3}
+  - name: bld_castle_tower_wall_top_01_lite
+    prefab: {fileID: 195194, guid: 04b3e8bbf203b374ba19aa2fd8129ceb, type: 3}
+  - name: bld_castle_tower_wall_top_01_snow
+    prefab: {fileID: 139286, guid: 2bacf0e47afcb564e8dc7db24e7d7393, type: 3}
+  - name: bld_castle_wall_01
+    prefab: {fileID: 147672, guid: 77ad9661321c6e84280c8fbe32492c06, type: 3}
+  - name: bld_castle_wall_01_lite
+    prefab: {fileID: 105826, guid: 56e3c741d680c6948adde1a3f33e3e47, type: 3}
+  - name: bld_castle_wall_01_snow
+    prefab: {fileID: 107802, guid: f9d80e9783c282b48af313441bd0dd14, type: 3}
+  - name: bld_castle_wall_gate_01
+    prefab: {fileID: 141314, guid: a342473935e669649a9be973cda516c1, type: 3}
+  - name: bld_castle_wall_gate_01_lite
+    prefab: {fileID: 100148, guid: 43c7f8dd68155c9429740d8000ec6c10, type: 3}
+  - name: bld_castle_wall_gate_01_snow
+    prefab: {fileID: 165196, guid: 2a05301514eb7a445a766ca5c39a0b12, type: 3}
+  - name: bld_castle_wood_battlement_01
+    prefab: {fileID: 137164, guid: a002656da6afcd3458186e57b083c403, type: 3}
+  - name: bld_castle_wood_battlement_01_snow
+    prefab: {fileID: 100732, guid: 1fd808dd3f00d6344b3b17b972d5d353, type: 3}
+  - name: bld_castle_wood_battlement_02
+    prefab: {fileID: 155592, guid: 45f56cd437954cd49bcafe3dee02d907, type: 3}
+  - name: bld_castle_wood_battlement_02_snow
+    prefab: {fileID: 137638, guid: 4b857ef22aa57b949874a7ff0c4b1b9b, type: 3}
+  - name: bld_castle_wood_battlement_03
+    prefab: {fileID: 170094, guid: 67a1b5b881e15fd41bc03579410eb37a, type: 3}
+  - name: bld_castle_wood_battlement_03_snow
+    prefab: {fileID: 140062, guid: 640bffd7ae59f134daee7763cf8e2c5c, type: 3}
+  - name: bld_castle_wood_battlement_04
+    prefab: {fileID: 111888, guid: 5d9e223d566966840a47e484271f8941, type: 3}
+  - name: bld_castle_wood_battlement_04_snow
+    prefab: {fileID: 108260, guid: 2827071aaa3d60e44acad5b4d5ff00c1, type: 3}
+  - name: bld_castle_wood_detal_01
+    prefab: {fileID: 155524, guid: c74652422eeb7e14088334d69d323aa2, type: 3}
+  - name: bld_castle_wood_detal_01_snow
+    prefab: {fileID: 102736, guid: e04f83788471d3041926f901b972831c, type: 3}
+  - name: bld_church_door_01
+    prefab: {fileID: 177086, guid: 68806ed2cec96b24f9e4c1fa06c68930, type: 3}
+  - name: bld_church_door_01_snow
+    prefab: {fileID: 143018, guid: c147b8070fac0dc4e8c5e0abdf8c2bcb, type: 3}
+  - name: bld_church_extension_01
+    prefab: {fileID: 132966, guid: 43211a28ff3644442bed0e535a58c84f, type: 3}
+  - name: bld_church_extension_01_lite
+    prefab: {fileID: 139122, guid: c3fe439701846474c97d417df0a9424a, type: 3}
+  - name: bld_church_extension_01_snow
+    prefab: {fileID: 116078, guid: 0a72b7f8ab7503a4bb3fd2eaad55d42f, type: 3}
+  - name: bld_church_room_01
+    prefab: {fileID: 174332, guid: a72279e3b12169c46bafba06303acf4b, type: 3}
+  - name: bld_church_room_01_lite
+    prefab: {fileID: 135722, guid: 1cfa6ddc102cddf47a55ece54cf1757e, type: 3}
+  - name: bld_church_room_01_snow
+    prefab: {fileID: 174020, guid: eb6dc373c6b62434d9eb4505a88c283c, type: 3}
+  - name: bld_church_room_02
+    prefab: {fileID: 118106, guid: 9a16735a8eacd8b48933ccdf6dfffe45, type: 3}
+  - name: bld_church_room_02_lite
+    prefab: {fileID: 105272, guid: e09787c8d837ec54a8b3fd13d1173b7a, type: 3}
+  - name: bld_church_room_02_snow
+    prefab: {fileID: 171118, guid: f5731dbf75006af488277cb1c7f69c48, type: 3}
+  - name: bld_church_room_03
+    prefab: {fileID: 114500, guid: 8ce17871b57b4444e82648af76f17f0e, type: 3}
+  - name: bld_church_room_03_lite
+    prefab: {fileID: 191812, guid: c5a23c567c1d68f4389bb0e4e6d6ec99, type: 3}
+  - name: bld_church_room_03_snow
+    prefab: {fileID: 129548, guid: c2564588a76c1b04185ad7d05672f28e, type: 3}
+  - name: bld_church_tower_01
+    prefab: {fileID: 169570, guid: 594d2b648448ef1458c5263b32ba1e1f, type: 3}
+  - name: bld_church_tower_01_lite
+    prefab: {fileID: 196994, guid: d6ea5c8c3bfaae14fbd1181248e18f46, type: 3}
+  - name: bld_church_tower_01_snow
+    prefab: {fileID: 188182, guid: 4acb3a2bd04bb8a4984fdebf87cb49c7, type: 3}
+  - name: bld_church_tower_02
+    prefab: {fileID: 179844, guid: c2aeb3b938cb0f540a7cc83906bea6b0, type: 3}
+  - name: bld_church_tower_02_lite
+    prefab: {fileID: 187086, guid: 35904a679343885408d3b64889593b55, type: 3}
+  - name: bld_church_tower_02_snow
+    prefab: {fileID: 105182, guid: 1b46e8443f2d0614f8159ffb87677193, type: 3}
+  - name: bld_church_tower_03
+    prefab: {fileID: 145682, guid: 4f328f4bcf5587a4990005283056020f, type: 3}
+  - name: bld_church_tower_03_lite
+    prefab: {fileID: 177050, guid: 2cad9edfaa291ee40b4e572ef31d9074, type: 3}
+  - name: bld_church_tower_base_01
+    prefab: {fileID: 183602, guid: 2f9b863cf6cd6dc4f8e6a563c25a8bb5, type: 3}
+  - name: bld_church_tower_base_01_lite
+    prefab: {fileID: 198414, guid: 9459e0f93798ac2499a434a3359611df, type: 3}
+  - name: bld_church_window_01
+    prefab: {fileID: 127698, guid: e1a24f1e07bfc1e4aabb387f71ec575e, type: 3}
+  - name: bld_house_chimney_01
+    prefab: {fileID: 105090, guid: 3789d65be84741545afcfb9b91749198, type: 3}
+  - name: bld_house_chimney_01_snow
+    prefab: {fileID: 186760, guid: 5d0fbce08c4753b41b6591e08b0a0a4f, type: 3}
+  - name: bld_house_chimney_02
+    prefab: {fileID: 172590, guid: 9798020b643705e438eaa01ca7ae48d3, type: 3}
+  - name: bld_house_chimney_02_snow
+    prefab: {fileID: 105762, guid: c7de67b52d91ad347bb4407b5a2bae2d, type: 3}
+  - name: bld_house_chimney_03
+    prefab: {fileID: 178018, guid: 52d2ac88e4266ae4287982747ca76a1c, type: 3}
+  - name: bld_house_chimney_03_snow
+    prefab: {fileID: 105128, guid: 2f3b62ab32fae8d4f9755acaad13e122, type: 3}
+  - name: bld_house_chimney_04
+    prefab: {fileID: 129550, guid: 8a198cb1ec9006347b4721ff22ac681e, type: 3}
+  - name: bld_house_chimney_04_snow
+    prefab: {fileID: 187268, guid: 23af9ed2a846c5c448dbfb2de26c819f, type: 3}
+  - name: bld_house_chimney_05
+    prefab: {fileID: 129510, guid: 41d3dc1fd42040a4ca89e58af09e14fc, type: 3}
+  - name: bld_house_chimney_05_snow
+    prefab: {fileID: 138810, guid: 32bab9a3dd050d54f89eb90b65268771, type: 3}
+  - name: bld_house_door_01
+    prefab: {fileID: 132052, guid: b4da227c9b849fe42ae5257c25064f33, type: 3}
+  - name: bld_house_door_01_snow
+    prefab: {fileID: 191188, guid: 62983c3873dabf946997e50c919acffe, type: 3}
+  - name: bld_house_door_02
+    prefab: {fileID: 198514, guid: 5d4ced0355afd34439cce06d7e7012b5, type: 3}
+  - name: bld_house_door_02_snow
+    prefab: {fileID: 175858, guid: 2e67a11c88570aa44b81f74cfda3cb74, type: 3}
+  - name: bld_house_door_03
+    prefab: {fileID: 121134, guid: 1018a369bf1e2304693a74ea94205090, type: 3}
+  - name: bld_house_door_03_snow
+    prefab: {fileID: 163352, guid: 2b3dd500cc76b134abe2e583589dc5aa, type: 3}
+  - name: bld_house_door_04
+    prefab: {fileID: 144612, guid: 00e3039b1aaf0ee4abe6529e9dfd71bc, type: 3}
+  - name: bld_house_door_04_snow
+    prefab: {fileID: 189130, guid: c6caf70a4e1a7ff49950a8d1520eed1e, type: 3}
+  - name: bld_house_extension_01
+    prefab: {fileID: 105832, guid: 6479a2e283e1d2649887b8c947fcc826, type: 3}
+  - name: bld_house_extension_01_snow
+    prefab: {fileID: 149150, guid: 287beeb53827166429a7dc4b37d46311, type: 3}
+  - name: bld_house_extension_02
+    prefab: {fileID: 104368, guid: d80243e68c7887049a8d1d3b42286f3e, type: 3}
+  - name: bld_house_extension_02_snow
+    prefab: {fileID: 199858, guid: 7d702b4197d952040be7f67952a88145, type: 3}
+  - name: bld_house_foundation_01
+    prefab: {fileID: 180184, guid: 1d4405cf69adec64a97df561b9f3661a, type: 3}
+  - name: bld_house_foundation_02
+    prefab: {fileID: 157484, guid: 2065fe8f26032bf4e9694fa0f198c147, type: 3}
+  - name: bld_house_foundation_03
+    prefab: {fileID: 184438, guid: 4cecd3ee2e6a59e42b606f8b165f43b2, type: 3}
+  - name: bld_house_foundation_04
+    prefab: {fileID: 100108, guid: 8c4ffe1cdf6340143be5ddb96c2c0c5b, type: 3}
+  - name: bld_house_foundation_05
+    prefab: {fileID: 100002, guid: 718ea5c67c197f54f8b02a9e57c8d21e, type: 3}
+  - name: bld_house_foundation_06
+    prefab: {fileID: 177110, guid: 27e4689e1c1d6f84da2be4e3b00213dd, type: 3}
+  - name: bld_house_foundation_07
+    prefab: {fileID: 152466, guid: 46446b93c123716498506636ebe9ef68, type: 3}
+  - name: bld_house_foundation_beams_01
+    prefab: {fileID: 108878, guid: a1d89dfa5be4ffa4395c55529be0064f, type: 3}
+  - name: bld_house_foundation_rock_01
+    prefab: {fileID: 192068, guid: 2cbe4111caaa52243a97077dfc33593c, type: 3}
+  - name: bld_house_room_01
+    prefab: {fileID: 171434, guid: b8a7b28b67598a4408bdfe6ccf005ea4, type: 3}
+  - name: bld_house_room_01_snow
+    prefab: {fileID: 112408, guid: 5c9077fac576a694da31d18be81f59f5, type: 3}
+  - name: bld_house_room_02
+    prefab: {fileID: 193714, guid: 53a1fad510b98f74c96763872cbd652f, type: 3}
+  - name: bld_house_room_02_snow
+    prefab: {fileID: 166010, guid: e32b17109c513b34cb133ddb90996ae0, type: 3}
+  - name: bld_house_room_03
+    prefab: {fileID: 105206, guid: a0b4df2d799cca846a033244653040d1, type: 3}
+  - name: bld_house_room_03_snow
+    prefab: {fileID: 177300, guid: 82e7f641d8b84da44a0f2ad640e577f0, type: 3}
+  - name: bld_house_room_04
+    prefab: {fileID: 111328, guid: 6552478e29ecebe4b9fa6b4e41f43a81, type: 3}
+  - name: bld_house_room_04_snow
+    prefab: {fileID: 108934, guid: 11fdfedede6e5344180c99c4a56bc6ee, type: 3}
+  - name: bld_house_room_05
+    prefab: {fileID: 163086, guid: aeef915f0e0e8704fb1059fb67fb44d2, type: 3}
+  - name: bld_house_room_05_snow
+    prefab: {fileID: 176520, guid: 7476f1aab22a2454699bbfdcc4be0cf1, type: 3}
+  - name: bld_house_room_06
+    prefab: {fileID: 189980, guid: 7b4a57ebbd1f0564d95d520ab4703141, type: 3}
+  - name: bld_house_room_06_snow
+    prefab: {fileID: 100280, guid: 107b01e3cf4c78a458ae7ca908ca8664, type: 3}
+  - name: bld_house_room_07
+    prefab: {fileID: 152740, guid: 75998fa152c866249b63168bfc7703f5, type: 3}
+  - name: bld_house_room_07_snow
+    prefab: {fileID: 155322, guid: 123ad3efbf34a5d4a91d1414df8fc415, type: 3}
+  - name: bld_house_room_round_01
+    prefab: {fileID: 192126, guid: bd10d173afce986489058a8e31f1be04, type: 3}
+  - name: bld_house_room_round_01_snow
+    prefab: {fileID: 172758, guid: 5a91108b3fc7c484a8ceda25dd74c42d, type: 3}
+  - name: bld_house_room_round_02
+    prefab: {fileID: 114462, guid: edb22ef6222c0024898d48dc3f510a5d, type: 3}
+  - name: bld_house_room_round_02_snow
+    prefab: {fileID: 106312, guid: a9159f6bb0369614e8aa56a09048b3cf, type: 3}
+  - name: bld_house_room_tall_01
+    prefab: {fileID: 185496, guid: 8ab75cde856d2dc47a983c101385d00b, type: 3}
+  - name: bld_house_room_tall_01_snow
+    prefab: {fileID: 135890, guid: f1c37aa4a5ca1a7468c0d6a3680c4f28, type: 3}
+  - name: bld_house_room_tall_02
+    prefab: {fileID: 177832, guid: 7f6df56c991ded747b34087e65e80562, type: 3}
+  - name: bld_house_room_tall_02_snow
+    prefab: {fileID: 134424, guid: b5e7db4d41e07ff449c920293c98cab5, type: 3}
+  - name: bld_house_room_tall_03
+    prefab: {fileID: 149178, guid: 00493817ea46851478eedace9c7071aa, type: 3}
+  - name: bld_house_room_tall_03_snow
+    prefab: {fileID: 184836, guid: c1066f86de4cb754e95145365338465a, type: 3}
+  - name: bld_house_room_tall_04
+    prefab: {fileID: 106520, guid: 82a0c5a1b9118ab4bb67709fc878adbd, type: 3}
+  - name: bld_house_room_tall_04_snow
+    prefab: {fileID: 144784, guid: f4a88b3379d2f424eb2c3ceb06935499, type: 3}
+  - name: bld_house_room_tall_05
+    prefab: {fileID: 192876, guid: 206a1341ecd94df4a85d1e16fb43fd5d, type: 3}
+  - name: bld_house_room_tall_05_snow
+    prefab: {fileID: 108528, guid: e3548d4f33dac3e4c93d23d318714825, type: 3}
+  - name: bld_house_room_tall_06
+    prefab: {fileID: 129630, guid: 16405db6e1ff3d34caeb752038053dfc, type: 3}
+  - name: bld_house_room_tall_06_snow
+    prefab: {fileID: 168540, guid: 6a757380c5d34bc4995318fa07d5ce44, type: 3}
+  - name: bld_house_room_top_01
+    prefab: {fileID: 187986, guid: 58fcef91f30c8c14b8ebb0165c76c637, type: 3}
+  - name: bld_house_room_top_01_snow
+    prefab: {fileID: 162000, guid: cb294494d47fa7b4b8723752486a8636, type: 3}
+  - name: bld_house_room_top_02
+    prefab: {fileID: 133646, guid: 138f01e248f319c4388a7199ae4e3eae, type: 3}
+  - name: bld_house_room_top_02_snow
+    prefab: {fileID: 184686, guid: ea8dd463ef62c0f4db2207816457cf80, type: 3}
+  - name: bld_house_room_top_03
+    prefab: {fileID: 128856, guid: 51aef4a8ca8fd3e44b697a916eb2325a, type: 3}
+  - name: bld_house_room_top_03_snow
+    prefab: {fileID: 176526, guid: eab6ae7add6ca3243ad713bb205718d3, type: 3}
+  - name: bld_house_room_top_04
+    prefab: {fileID: 124692, guid: d4d4c233788d2dd48b21ac853bb73351, type: 3}
+  - name: bld_house_room_top_04_snow
+    prefab: {fileID: 110854, guid: 3bb02264e91dff2449ab49d755b6c092, type: 3}
+  - name: bld_house_room_top_05
+    prefab: {fileID: 146506, guid: c44fc839a1c58f94b8cd238bd252c981, type: 3}
+  - name: bld_house_room_top_05_snow
+    prefab: {fileID: 116916, guid: b9313dfbf2474be419367366dfdc2f58, type: 3}
+  - name: bld_house_room_top_06
+    prefab: {fileID: 176296, guid: 346402d3a99cf4645b573a2679f4ee97, type: 3}
+  - name: bld_house_room_top_06_snow
+    prefab: {fileID: 132710, guid: 44b1a688c287a55498bc837caf2fd3eb, type: 3}
+  - name: bld_house_room_top_07
+    prefab: {fileID: 188552, guid: 3c171231ad46a50489587984eef66679, type: 3}
+  - name: bld_house_room_top_07_snow
+    prefab: {fileID: 170288, guid: 69cd87ae941af3e44bb334080d25870a, type: 3}
+  - name: bld_house_steps_small_01
+    prefab: {fileID: 111246, guid: 84eb6b03b16f4e14790877d3a3379b91, type: 3}
+  - name: bld_house_steps_small_01_snow
+    prefab: {fileID: 108322, guid: 1ae8d8a492b8f6d46a99e58326fcb7b8, type: 3}
+  - name: bld_house_top_room_small_01
+    prefab: {fileID: 161898, guid: af056f47e8a2c444ea2536d3bc4303ab, type: 3}
+  - name: bld_house_top_room_small_01_snow
+    prefab: {fileID: 189882, guid: 0c02352f90edfa543b47b722d4525920, type: 3}
+  - name: bld_house_top_room_small_02
+    prefab: {fileID: 126070, guid: 52b992277e821a8468fdeda3da875bf8, type: 3}
+  - name: bld_house_top_room_small_02_snow
+    prefab: {fileID: 112086, guid: 6ba2e5804305ee14fa57aa349e6897f6, type: 3}
+  - name: bld_house_top_room_small_03
+    prefab: {fileID: 118896, guid: 9a48db7e16e60d64796239df3fc0b963, type: 3}
+  - name: bld_house_top_room_small_03_snow
+    prefab: {fileID: 179152, guid: 4eea47cab128a2644bf74850b544635e, type: 3}
+  - name: bld_house_top_room_small_04
+    prefab: {fileID: 182140, guid: f101780f32b5af64bb3c14fbf09b1771, type: 3}
+  - name: bld_house_top_room_small_04_snow
+    prefab: {fileID: 197390, guid: 0eeb332557dfc424b82acd83b0e8ed26, type: 3}
+  - name: bld_house_top_room_small_05
+    prefab: {fileID: 154720, guid: 7d7fac1794be19f468eda587e63e6774, type: 3}
+  - name: bld_house_top_room_small_05_snow
+    prefab: {fileID: 160376, guid: f4bea1a03d93af647a89397dcf397ef8, type: 3}
+  - name: bld_house_top_room_small_06
+    prefab: {fileID: 151746, guid: 7b0042f066fa9f64faf14546517ef9c0, type: 3}
+  - name: bld_house_top_room_small_06_snow
+    prefab: {fileID: 147412, guid: 497279650d5e2ce4bba8f5179b8d1b78, type: 3}
+  - name: bld_house_top_room_small_07
+    prefab: {fileID: 108086, guid: 632f78bd9555d2844968aa64cfd177af, type: 3}
+  - name: bld_house_top_room_small_07_snow
+    prefab: {fileID: 196448, guid: e2025a141a979ca44a1e06f26f6e29a7, type: 3}
+  - name: bld_house_tower_01
+    prefab: {fileID: 141876, guid: 141aa4408d61bc244a29ea886cc08ae3, type: 3}
+  - name: bld_house_tower_01_snow
+    prefab: {fileID: 114082, guid: fa8b1744e33340f4aa19ff11b93580bf, type: 3}
+  - name: bld_house_window_01
+    prefab: {fileID: 119564, guid: 24ad2ff28aff08c42a86587e931bae5e, type: 3}
+  - name: bld_house_window_01_snow
+    prefab: {fileID: 127484, guid: d2ae8b3450c5c664b8d80b67ff27387c, type: 3}
+  - name: bld_house_window_02
+    prefab: {fileID: 129474, guid: b7e343cacbde5c4488226745ed8f7db8, type: 3}
+  - name: bld_house_window_02_snow
+    prefab: {fileID: 151480, guid: d23160912636574439213671cb78d986, type: 3}
+  - name: bld_house_window_03
+    prefab: {fileID: 188096, guid: 99b22ade5e5fef24b82c5cba6e333937, type: 3}
+  - name: bld_house_window_03_snow
+    prefab: {fileID: 137728, guid: 3f8f409720a2f95409c8d791a25ca12b, type: 3}
+  - name: bld_house_window_04
+    prefab: {fileID: 168022, guid: 091ea372da794714aacb7b7a6fbd5f58, type: 3}
+  - name: bld_house_window_04_snow
+    prefab: {fileID: 123642, guid: df20d51a34e84144692ca484c581328f, type: 3}
+  - name: bld_house_window_05
+    prefab: {fileID: 103576, guid: a1a07b9b24914d24bb141f7166159b26, type: 3}
+  - name: bld_house_window_05_snow
+    prefab: {fileID: 108760, guid: 09a7a930184284b4cbd1603868b1c9a7, type: 3}
+  - name: bld_leanto_01
+    prefab: {fileID: 117958, guid: c34c166783f3c744686ef9143de6e3fe, type: 3}
+  - name: bld_leanto_01_snow
+    prefab: {fileID: 147352, guid: 359bc0057e473984096c8c30538d5023, type: 3}
+  - name: bld_rockwall_archway_01
     prefab: {fileID: 134056, guid: aa9bca2df395111479f08def2925a97f, type: 3}
-  - name: campfire
-    prefab: {fileID: 199490, guid: bddb857dccb8156419a78be08cb4b651, type: 3}
-  - name: brazier
-    prefab: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
-  - name: banner_1
+  - name: bld_rockwall_archway_01_snow
+    prefab: {fileID: 175888, guid: aa71454e628711048be263c4d88384ab, type: 3}
+  - name: bld_rockwall_stair_archway_01
+    prefab: {fileID: 122906, guid: 3040add481816674e8d54cd9e3a78aac, type: 3}
+  - name: bld_rockwall_stair_archway_01_snow
+    prefab: {fileID: 130460, guid: e33d966a7b2a13640bf08d0426672073, type: 3}
+  - name: bld_rockwall_stairs_01
+    prefab: {fileID: 140248, guid: 6632839a4fe2f5640b64865057f79acc, type: 3}
+  - name: bld_rockwall_stairs_01_snow
+    prefab: {fileID: 148480, guid: aeb4b0cd62318724db96286fddd83022, type: 3}
+  - name: bld_rockwall_straight_01
+    prefab: {fileID: 148952, guid: a5bb8fdb18a5fce4a934aac86e8ec191, type: 3}
+  - name: bld_rockwall_straight_01_snow
+    prefab: {fileID: 127242, guid: 3723d64fc927cf64dbe02ccedc32cfc9, type: 3}
+  - name: bld_stairs_large_01
+    prefab: {fileID: 129838, guid: 60b9638239615e4458f5dc2aa7892cce, type: 3}
+  - name: bld_stairs_large_01_snow
+    prefab: {fileID: 108486, guid: 22707cac57d152f47840353b2078da00, type: 3}
+  - name: bld_stairs_large_02
+    prefab: {fileID: 148450, guid: 9d512b24ffbedb841a3b360fd5f32d6c, type: 3}
+  - name: bld_stairs_large_02_snow
+    prefab: {fileID: 107712, guid: a59701f4ac337494aba2dadcc87fb525, type: 3}
+  - name: bld_stairs_large_corner_01
+    prefab: {fileID: 185388, guid: 6d571e1ac9bd40943bca17c3417d979f, type: 3}
+  - name: bld_stairs_large_corner_01_snow
+    prefab: {fileID: 145584, guid: 9e9cf50ca5420564882f7813526b992e, type: 3}
+  - name: bld_stairs_large_corner_02
+    prefab: {fileID: 157334, guid: a376f41ee08c8f14491774192b7dad79, type: 3}
+  - name: bld_stairs_large_corner_02_snow
+    prefab: {fileID: 188570, guid: 79f1a2b87ee055c4abdc04e9af1d5f60, type: 3}
+  - name: bld_tent_01
+    prefab: {fileID: 162728, guid: 33adbca995ce9484f9258d275aabac10, type: 3}
+  - name: bld_tent_01_snow
+    prefab: {fileID: 112120, guid: a5a3ac181ea8b0648a6d9e47a4e9871d, type: 3}
+  - name: bld_tent_02
+    prefab: {fileID: 193672, guid: d8e888ed02072774198f7f7ce47d5f50, type: 3}
+  - name: bld_tent_02_snow
+    prefab: {fileID: 143964, guid: 63bc61fd01b93af4cb0f789a4f098a3b, type: 3}
+  - name: bld_tent_03
+    prefab: {fileID: 128636, guid: 68a8f186e1f1db64dbfe8ddd247816ec, type: 3}
+  - name: bld_tent_03_snow
+    prefab: {fileID: 178232, guid: b3f63a08cad7af84399f19f5624c24fc, type: 3}
+  - name: bld_village_well_01
+    prefab: {fileID: 148764, guid: fd4bfd190fdf71945b39f635e2671b97, type: 3}
+  - name: bld_village_well_01_snow
+    prefab: {fileID: 117716, guid: 349a95877a2dab644bd575346288dac9, type: 3}
+  - name: bld_well_01
+    prefab: {fileID: 2353317757980482398, guid: 763a6e5ba7a00d84b88c731a56e89571, type: 3}
+  - name: env_canal_01
+    prefab: {fileID: 160852, guid: 9d80acb668cc21a409fb96a9ecebdce9, type: 3}
+  - name: env_canal_02
+    prefab: {fileID: 172294, guid: d150e6d2d6589744e86c10c51120cbd5, type: 3}
+  - name: env_canal_03
+    prefab: {fileID: 117924, guid: d9767e8a6cbda7941a4783dfd7c978ec, type: 3}
+  - name: env_canal_block_01
+    prefab: {fileID: 149488, guid: eab6386de63d51d408e876937feb97c8, type: 3}
+  - name: env_canal_bridge_01
+    prefab: {fileID: 189614, guid: a0cb2c321fdf00a4ba429209e735b448, type: 3}
+  - name: env_canal_bridge_01_snow
+    prefab: {fileID: 110136, guid: c68eb570100218d42b229d729668a091, type: 3}
+  - name: env_cliff_01
+    prefab: {fileID: 114422, guid: b1c5ebf76ee684f4d9c641a1fc1523cf, type: 3}
+  - name: env_cliff_02
+    prefab: {fileID: 155924, guid: 8a521154430ac7b4f84ecd2939a3f482, type: 3}
+  - name: env_cloud_06
+    prefab: {fileID: 109238, guid: 446f7ff8ef8707242a32cac44fec75f6, type: 3}
+  - name: env_flower_01
+    prefab: {fileID: 191548, guid: 122f65ce20a93d54d9dcba16303e0785, type: 3}
+  - name: env_grass_01
+    prefab: {fileID: 192992, guid: f21c48374d4fdc4489f7894214718503, type: 3}
+  - name: env_ground_mound_01
+    prefab: {fileID: 195246, guid: f0d166010146cdc4eb7c784d54eda812, type: 3}
+  - name: env_ground_mound_02
+    prefab: {fileID: 125484, guid: 38e9f74e7ad2817489313b84c0695d34, type: 3}
+  - name: env_mountain_grass_01
+    prefab: {fileID: 167684, guid: 527fa9e5a993752478e3f10c46b015ff, type: 3}
+  - name: env_mountain_grass_02
+    prefab: {fileID: 125978, guid: 4a6556da5abedc44594c45ac4a2cf5fe, type: 3}
+  - name: env_mountain_snow_01
+    prefab: {fileID: 186004, guid: ce0336c838ea8bb47af6deede8f87396, type: 3}
+  - name: env_mountain_snow_02
+    prefab: {fileID: 142126, guid: 379aef8e43219a14ebef74d9cdd557e8, type: 3}
+  - name: env_path_cobble_01
+    prefab: {fileID: 161712, guid: cd63e7ed2d501564ebcb6cd6729e699e, type: 3}
+  - name: env_path_cobble_01_snow
+    prefab: {fileID: 111878, guid: c514137b1e39e5f43bf39c988d4ff044, type: 3}
+  - name: env_path_cobble_02
+    prefab: {fileID: 188894, guid: f19c957688bdf7849aa321d60569a6b2, type: 3}
+  - name: env_path_cobble_02_snow
+    prefab: {fileID: 159870, guid: e767b7dde8a52b14b871fe9a295bb8df, type: 3}
+  - name: env_path_cobble_stone_01
+    prefab: {fileID: 172220, guid: d9ca6272e5ae5c04db745d7397ddedb2, type: 3}
+  - name: env_path_dirt_01
+    prefab: {fileID: 153302, guid: c4ea6c556c8f2064a877d7f0982758f3, type: 3}
+  - name: env_path_dirt_02
+    prefab: {fileID: 137852, guid: 03d2eb9c9da523040929bae51949bd81, type: 3}
+  - name: env_path_dirt_03
+    prefab: {fileID: 126640, guid: 5192ca6ecc300684cb6da5af87a67b3b, type: 3}
+  - name: env_path_dirt_04
+    prefab: {fileID: 180318, guid: ceaa0dad70b28974ebaa1df6c39af657, type: 3}
+  - name: env_path_dirt_05
+    prefab: {fileID: 128882, guid: 482e6fd5e9d0ec0459314a4fddeb2369, type: 3}
+  - name: env_path_dirt_06
+    prefab: {fileID: 114890, guid: 9f84f38f7b779a54fb770311cc732a2f, type: 3}
+  - name: env_path_snow_01_snow
+    prefab: {fileID: 174650, guid: 757f89616a52ea8498bcb56f10508142, type: 3}
+  - name: env_path_stone_01
+    prefab: {fileID: 103782, guid: 32949ef0637572547b3ec7683f284b74, type: 3}
+  - name: env_path_stone_01_snow
+    prefab: {fileID: 174564, guid: df57ae19ed2ba414faecaffb3ec74e9c, type: 3}
+  - name: env_path_stone_02
+    prefab: {fileID: 185296, guid: 079fa19ccd7a3484f933ea909821713f, type: 3}
+  - name: env_path_stone_02_snow
+    prefab: {fileID: 115800, guid: 9d5125395726d07489934a65308e4b30, type: 3}
+  - name: env_path_stone_03
+    prefab: {fileID: 186288, guid: 8882443425560684dba932aaf44f3350, type: 3}
+  - name: env_path_stone_03_snow
+    prefab: {fileID: 169468, guid: 688de4c1c62c6d74cbb51f5a006f0e1e, type: 3}
+  - name: env_path_tile_01
+    prefab: {fileID: 113036, guid: 0c8b53b4a2c2a624d8f344f282d709aa, type: 3}
+  - name: env_path_tile_01_snow
+    prefab: {fileID: 111742, guid: 1bc0af6d47e7ebb43bb2638e709f3d4e, type: 3}
+  - name: env_path_tile_02
+    prefab: {fileID: 111248, guid: 8cab502212f9c98408dba5ee83b4054a, type: 3}
+  - name: env_path_tile_02_snow
+    prefab: {fileID: 186750, guid: 901dbbf8b98014748b711baa056ba0de, type: 3}
+  - name: env_path_tile_corner_01
+    prefab: {fileID: 190604, guid: ec3399d2c026f3d42be5a32a04d6a75c, type: 3}
+  - name: env_path_tile_corner_01_snow
+    prefab: {fileID: 193796, guid: d3b7b8d9d2313bb4baf98c17d41b466a, type: 3}
+  - name: env_rock_pile_01
+    prefab: {fileID: 113602, guid: 2b1cd4ec8dfee7041b5bc5767613d249, type: 3}
+  - name: env_rock_pile_01_snow
+    prefab: {fileID: 171338, guid: 0638d268456199b4b94365aa57b60205, type: 3}
+  - name: env_rock_pile_02
+    prefab: {fileID: 159564, guid: 14f268b815b67ef44b43dfd0d81145d5, type: 3}
+  - name: env_rock_pile_02_snow
+    prefab: {fileID: 136368, guid: 1b495143692009c4f9d7fb51a9b1241c, type: 3}
+  - name: env_rock_pile_03
+    prefab: {fileID: 120268, guid: 0eba33735703d6b49a1773d1396db4b8, type: 3}
+  - name: env_rock_pile_03_snow
+    prefab: {fileID: 191180, guid: 69b33826ebcdc5645b088aff8dbfb8e2, type: 3}
+  - name: env_tile_dirt_01
+    prefab: {fileID: 102644, guid: 570d99cf7660e2f4692da079a31af230, type: 3}
+  - name: env_tile_grass_01
+    prefab: {fileID: 128328, guid: bc6b7d6f0fb98544a873a3d69729fe66, type: 3}
+  - name: env_tile_snow_01
+    prefab: {fileID: 126222, guid: 0342ae64093dbba4f84d82ae8f84abce, type: 3}
+  - name: env_tile_water_01
+    prefab: {fileID: 126532, guid: 32aa153ddd88f9647ae3fed004d7fc79, type: 3}
+  - name: env_tree_01
+    prefab: {fileID: 186820, guid: febadf3b0ed1d014bb1b9dcd8b633299, type: 3}
+  - name: env_tree_01_snow
+    prefab: {fileID: 105832, guid: 6801557f527ed7d488bdf58262dbf280, type: 3}
+  - name: env_tree_02
+    prefab: {fileID: 107988, guid: ad49c548c939c434e8c7700f06099bdd, type: 3}
+  - name: env_tree_02_snow
+    prefab: {fileID: 197738, guid: 7619d966c4cb59b42aa66eebb0a05945, type: 3}
+  - name: env_tree_03
+    prefab: {fileID: 160654, guid: a5d47e9cdfeba484f8f8f62f424a717f, type: 3}
+  - name: env_tree_03_snow
+    prefab: {fileID: 189464, guid: 98720b2a3ca09564a8ef6bdbb38868d4, type: 3}
+  - name: env_tree_twisted_01
+    prefab: {fileID: 136664, guid: 77c54194384c09a45b991556c9fe41a5, type: 3}
+  - name: env_tree_twisted_01_snow
+    prefab: {fileID: 120608, guid: 5e9cb1529de312847aecd5dccdaa6693, type: 3}
+  - name: env_tree_twisted_02
+    prefab: {fileID: 141078, guid: 51c1c04146bac56469780953edd2418c, type: 3}
+  - name: env_tree_twisted_02_snow
+    prefab: {fileID: 196742, guid: 22629e6c7df1ee94f99da26902c3fb02, type: 3}
+  - name: gen_prop_aircon_01
+    prefab: {fileID: 7939258425289795250, guid: fd3d12950e318b248850c307fc1012a9, type: 3}
+  - name: gen_prop_aircon_02
+    prefab: {fileID: 4468917190555673168, guid: 6f4e8989fcf50ca42824b32a8ff724f4, type: 3}
+  - name: gen_prop_aircon_roof_01
+    prefab: {fileID: 8176533473269931938, guid: e49c83dade1b1db4b92095a418f6a782, type: 3}
+  - name: gen_prop_aircon_roof_02
+    prefab: {fileID: 631999116285414907, guid: a1df29bf5b00fca43a8c4027a7e0aaf4, type: 3}
+  - name: gen_prop_aircon_roof_03
+    prefab: {fileID: 4585469192269141785, guid: d6de22598f94e93469612e5e9ca6cf35, type: 3}
+  - name: gen_prop_barrel_metal_01
+    prefab: {fileID: 1982933260569691131, guid: b7d340da675b88849810a9e27edfbeee, type: 3}
+  - name: gen_prop_barrel_metal_02
+    prefab: {fileID: 2874850714140620612, guid: 8f005b19b77af2a4e892baa614c506ad, type: 3}
+  - name: gen_prop_barrel_metal_03
+    prefab: {fileID: 8860844732930197397, guid: 689d92be7714eb14fae6b96b6743c8b4, type: 3}
+  - name: gen_prop_barrel_wood_01
+    prefab: {fileID: 5781694286754335005, guid: d0576d52436bc0c4eb18c7a25ddfcdf3, type: 3}
+  - name: gen_prop_barrel_wood_02
+    prefab: {fileID: 4579834156601985065, guid: fa8fc41f424824b4b9d9fcdbdad5d974, type: 3}
+  - name: gen_prop_barrel_wood_03
+    prefab: {fileID: 5063113824184492847, guid: 9986e72a691bcad4aa272e7f9a76d342, type: 3}
+  - name: gen_prop_bottle_01
+    prefab: {fileID: 3124339606396573936, guid: 7302c324977714240a3414e268f3d896, type: 3}
+  - name: gen_prop_bottle_02
+    prefab: {fileID: 5135661785894333139, guid: 98c28dfc9510d834b9add0b7f0ee2af7, type: 3}
+  - name: gen_prop_bottle_03
+    prefab: {fileID: 5600119739379007372, guid: b828a3bfe169b5949b51857b15e24e5e, type: 3}
+  - name: gen_prop_bottle_04
+    prefab: {fileID: 2460322647144703106, guid: 81cdce61e080f50488c30345a6262c03, type: 3}
+  - name: gen_prop_bottle_05
+    prefab: {fileID: 8160930201404557554, guid: 55cae93567601ff4e80b8c76f83177cb, type: 3}
+  - name: gen_prop_button_01
+    prefab: {fileID: 1298224427570457396, guid: af81cb1566e883047aff996e9bf132cf, type: 3}
+  - name: gen_prop_button_02
+    prefab: {fileID: 2800540197244765488, guid: 992186881cc36904eb0c170564b7c267, type: 3}
+  - name: gen_prop_cardboard_box_01
+    prefab: {fileID: 3016330430703408895, guid: afbc3707153a57c4996eed561707b5aa, type: 3}
+  - name: gen_prop_cardboard_box_02
+    prefab: {fileID: 4873216330058441305, guid: 0974a892a73e9f84f9f725039b7047ef, type: 3}
+  - name: gen_prop_cardboard_box_03
+    prefab: {fileID: 7959542569216306664, guid: e06d08eb8f6b076458cbf7ecbd044ffb, type: 3}
+  - name: gen_prop_cardboard_box_04
+    prefab: {fileID: 9154385689793306384, guid: 83a641ba0ae80604099873328111907c, type: 3}
+  - name: gen_prop_cardboard_box_05
+    prefab: {fileID: 3990145048313343455, guid: 5bed6837400fc0644b7955def9cba1ad, type: 3}
+  - name: gen_prop_cardboard_box_preset_01
+    prefab: {fileID: 354099919822039147, guid: 609e7b7606cdb8c4faa1bd70f4a4270f, type: 3}
+  - name: gen_prop_chain_01
+    prefab: {fileID: 6889783276712201839, guid: 10c4920ca2e71004db91ab714d902b66, type: 3}
+  - name: gen_prop_chain_02
+    prefab: {fileID: 1701943842447458132, guid: fda25120b3d80ff4da4093f046b9d1e0, type: 3}
+  - name: gen_prop_chain_03
+    prefab: {fileID: 5773077374128881253, guid: 273fbac1c209e9c4e86af24aa3a2f409, type: 3}
+  - name: gen_prop_chain_anchor_01
+    prefab: {fileID: 6980190743637777153, guid: 59ed5b7d941d7a44dac45574eba49ebc, type: 3}
+  - name: gen_prop_chair_01
+    prefab: {fileID: 4655428122252159713, guid: adcff36b55f7dee48a7f4bd1ee182e74, type: 3}
+  - name: gen_prop_chest_01
+    prefab: {fileID: 4003603189485666069, guid: d2d1684b47b3c254ca653563fce46e21, type: 3}
+  - name: gen_prop_chest_02
+    prefab: {fileID: 7733459185497637162, guid: 8055111d261e730409fd149f04475ce1, type: 3}
+  - name: gen_prop_clock_01
+    prefab: {fileID: 2345351642869214245, guid: b15961d15c5a2994f9071d3240b80846, type: 3}
+  - name: gen_prop_coin_01
+    prefab: {fileID: 3171712612498620950, guid: 01c589ec8fd6d4f46bbdab69cd0b938d, type: 3}
+  - name: gen_prop_coin_pile_01
+    prefab: {fileID: 2957133505187866865, guid: b9ae89d8a0968554f92aec7cb3610c52, type: 3}
+  - name: gen_prop_coin_pile_02
+    prefab: {fileID: 3893912976215769978, guid: b128d6ee1ae18674aac74a914d79652e, type: 3}
+  - name: gen_prop_coin_stack_01
+    prefab: {fileID: 6207138587820706361, guid: 96e989558c1d7b8448aff2720f6fa2f6, type: 3}
+  - name: gen_prop_coin_stack_02
+    prefab: {fileID: 4601325628514313937, guid: 4b5a571f5965945428f0221820974a6c, type: 3}
+  - name: gen_prop_crate_01
+    prefab: {fileID: 1414887969237499401, guid: 6e3cfe8cda1ce5449b002fd1348507fc, type: 3}
+  - name: gen_prop_crate_02
+    prefab: {fileID: 3813589974846415466, guid: 70ffc489c79a14a4caf59aa6cb7d74c2, type: 3}
+  - name: gen_prop_crate_03
+    prefab: {fileID: 5444336025286748187, guid: 6e3a10216d721d543bc636786be4e840, type: 3}
+  - name: gen_prop_crate_preset_01
+    prefab: {fileID: 2708484438028565609, guid: c561f9c33bd9c714094f061484b3ff94, type: 3}
+  - name: gen_prop_food_bread_01
+    prefab: {fileID: 5738579904125759928, guid: 78f905348b6fbd6468f2ea23735f39fa, type: 3}
+  - name: gen_prop_food_bread_02
+    prefab: {fileID: 6456606398055952612, guid: 6e5d49f87a625ba44b8897dd53db41a0, type: 3}
+  - name: gen_prop_food_meat_01
+    prefab: {fileID: 9105465624791796968, guid: bb5a692c175398541a0145aa72c15bf9, type: 3}
+  - name: gen_prop_food_meat_02
+    prefab: {fileID: 1910254425057996180, guid: 8aeae54939811954793254c19486c4c0, type: 3}
+  - name: gen_prop_food_meat_03
+    prefab: {fileID: 7980411735249532702, guid: b22f11bf1845d2a4e940c7c529e0c218, type: 3}
+  - name: gen_prop_food_meat_04
+    prefab: {fileID: 8778887512833872049, guid: b2b241cb4688d644698d1b304bbefc16, type: 3}
+  - name: gen_prop_food_meat_05
+    prefab: {fileID: 5165999937180794513, guid: 510dd38f624aeaa4e97a1bc5d38f13d6, type: 3}
+  - name: gen_prop_food_meat_06
+    prefab: {fileID: 6782084401701811052, guid: f50f32dca13de34478367b6b952cb050, type: 3}
+  - name: gen_prop_food_vegetable_01
+    prefab: {fileID: 8493272996063192780, guid: afc80491f843c5c4b95fe69abbddc991, type: 3}
+  - name: gen_prop_food_vegetable_02
+    prefab: {fileID: 2270481393349204185, guid: 1d5c8c681032a4544ad43d7697f40838, type: 3}
+  - name: gen_prop_food_vegetable_03
+    prefab: {fileID: 5293072324072636425, guid: 24aa13e0d4830064895edbca030098b2, type: 3}
+  - name: gen_prop_food_vegetable_04
+    prefab: {fileID: 6720298891952295425, guid: 1c0beb4a56aec6c4cac41903df5f7713, type: 3}
+  - name: gen_prop_food_vegetable_05
+    prefab: {fileID: 706406033393229511, guid: 8ada7757f96485b4194f97aff94d86b8, type: 3}
+  - name: gen_prop_food_vegetable_06
+    prefab: {fileID: 2278655872048138460, guid: 6c9599218a6c785468ae8123942d3803, type: 3}
+  - name: gen_prop_hook_01
+    prefab: {fileID: 2876657100721082122, guid: f53e9bc086400c24ebda38166ac861d5, type: 3}
+  - name: gen_prop_key_01
+    prefab: {fileID: 6742710865999467948, guid: a1305d146fd253e4daa203b0034c37b1, type: 3}
+  - name: gen_prop_keypad_01
+    prefab: {fileID: 2807974328107123935, guid: b595d6d81bb8ba84d87de1dfa93ab9e6, type: 3}
+  - name: gen_prop_lever_01
+    prefab: {fileID: 1010101563658142476, guid: 678d190cf58e6e34bb9fcf9ff62314fe, type: 3}
+  - name: gen_prop_lever_02
+    prefab: {fileID: 3441588638358208692, guid: 7ecc3fa45405e1449a4262fcb6ad9d6d, type: 3}
+  - name: gen_prop_light_roof_01
+    prefab: {fileID: 6984255523357946895, guid: 56ff336f04987a6449c96532e71787d2, type: 3}
+  - name: gen_prop_light_roof_02
+    prefab: {fileID: 8517797773157850009, guid: 48678e7353c71554aa77f0ae8229d625, type: 3}
+  - name: gen_prop_light_roof_03
+    prefab: {fileID: 8077357720612139249, guid: 23d9f54ef8157084aa07cd757a16b1c1, type: 3}
+  - name: gen_prop_light_wall_01
+    prefab: {fileID: 3509686067166076417, guid: 74af266ee2d1f1e4c8d957996cf827e3, type: 3}
+  - name: gen_prop_manhole_01
+    prefab: {fileID: 7895482115682143709, guid: 52a2fd4a5dafbe6469feef55c46e5271, type: 3}
+  - name: gen_prop_medkit_01
+    prefab: {fileID: 1464732720955938588, guid: bdf6235d3ceae7d45ab839bf99616cbe, type: 3}
+  - name: gen_prop_papers_01
+    prefab: {fileID: 8821665969352926371, guid: 8af81d950c39c18499cba36e9fd24291, type: 3}
+  - name: gen_prop_papers_02
+    prefab: {fileID: 1862969569460105856, guid: ff480208ea27b004fa62747883edc287, type: 3}
+  - name: gen_prop_papers_03
+    prefab: {fileID: 303051368072453540, guid: dda5da9d39243c94a9eb2337b4ba52cf, type: 3}
+  - name: gen_prop_papers_04
+    prefab: {fileID: 6355491548808843180, guid: d59f75fc3e488114d82923c61350f244, type: 3}
+  - name: gen_prop_papers_05
+    prefab: {fileID: 3629168384926254020, guid: cfaf8de74c728614d944eae8a98b9869, type: 3}
+  - name: gen_prop_papers_06
+    prefab: {fileID: 5683839640340379510, guid: 4c646a6f13af9e9498efa5c0d3b549f3, type: 3}
+  - name: gen_prop_plank_01
+    prefab: {fileID: 461172039783352098, guid: 6b2aa65405a920d40be460caf79da60e, type: 3}
+  - name: gen_prop_plank_02
+    prefab: {fileID: 5426267665804594891, guid: 3f54f68ff6899d34a85247498b4b2633, type: 3}
+  - name: gen_prop_plinth_01
+    prefab: {fileID: 5940737599406907627, guid: ea9612138c218e744aa2672de184893c, type: 3}
+  - name: gen_prop_plinth_02
+    prefab: {fileID: 1603108189197245733, guid: 76b6f56f6b94c3e42af51bebcd05d5f2, type: 3}
+  - name: gen_prop_pot_01
+    prefab: {fileID: 4109757446176497534, guid: c75777bdaa2c56b4fbddbb932ffcf935, type: 3}
+  - name: gen_prop_pot_02
+    prefab: {fileID: 4309575931106184802, guid: 4300f072a6700ed47b2b1486aeb7abea, type: 3}
+  - name: gen_prop_pot_03
+    prefab: {fileID: 2057888889428814484, guid: d43f03b6ed2016646bf90d3202b12d8b, type: 3}
+  - name: gen_prop_pot_04
+    prefab: {fileID: 3899388600755789835, guid: 3f9aa7a9468b6334a85c8de52d10c5e5, type: 3}
+  - name: gen_prop_pot_05
+    prefab: {fileID: 3684257990859168837, guid: 239f386842a511a4c9112989fdef5705, type: 3}
+  - name: gen_prop_potion_01
+    prefab: {fileID: 6798015009763888447, guid: 68da6e11f0050cb48a708855e9c3aee3, type: 3}
+  - name: gen_prop_rope_01
+    prefab: {fileID: 4483551530821011083, guid: 3ada364af1fef304e888c5bca2824b66, type: 3}
+  - name: gen_prop_rope_02
+    prefab: {fileID: 5093327274333604226, guid: 5c873b23d7705074fbc8b4a9399055fc, type: 3}
+  - name: gen_prop_rope_03
+    prefab: {fileID: 3305993770013990538, guid: e47bc2b47676d07459d786e5bdd91ae3, type: 3}
+  - name: gen_prop_rope_knot_01
+    prefab: {fileID: 8601388438770623937, guid: 90b939a199f56934396ec9777291eb2a, type: 3}
+  - name: gen_prop_sack_01
+    prefab: {fileID: 1805285506636410991, guid: 5697a9a014822354e84dd5e8c2543a8f, type: 3}
+  - name: gen_prop_sack_02
+    prefab: {fileID: 8288444301615329014, guid: dc3eef6903085924c905f6658187df4e, type: 3}
+  - name: gen_prop_sack_03
+    prefab: {fileID: 5288045579682262824, guid: 642bcdf2dd6025d46979fb8e1a12524b, type: 3}
+  - name: gen_prop_sack_04
+    prefab: {fileID: 1485297021483670739, guid: 3d6a2fae03698e24fb47a00c70ec4a7f, type: 3}
+  - name: gen_prop_sack_05
+    prefab: {fileID: 869612369919779844, guid: d825231838da371419485eb659d67eb9, type: 3}
+  - name: gen_prop_sack_stack_01
+    prefab: {fileID: 8752115278972753073, guid: 53e689cdb89924f4eacb5b2f01c0bae0, type: 3}
+  - name: gen_prop_sack_stack_02
+    prefab: {fileID: 4072335763191719239, guid: e9d41c6ea1514904dbf94bdc4a614ff4, type: 3}
+  - name: gen_prop_screen_01
+    prefab: {fileID: 6137207315265586995, guid: 89820393e8db8c34db4a1e0623b54668, type: 3}
+  - name: gen_prop_shelf_01
+    prefab: {fileID: 7362289287639868535, guid: 1ae87c67129ef334bbf026ee4eadc50e, type: 3}
+  - name: gen_prop_shelf_02
+    prefab: {fileID: 6768553503777268836, guid: ce2c6e4332e882c43ad3e727c0115f19, type: 3}
+  - name: gen_prop_shelf_03
+    prefab: {fileID: 6021633770673600103, guid: d58fb3e979a5d28488f2e9b6e398697d, type: 3}
+  - name: gen_prop_skull_01
+    prefab: {fileID: 8018217793725974746, guid: 26725b11a701a2f4686d789adf709d94, type: 3}
+  - name: gen_prop_statue_01
+    prefab: {fileID: 407478315422518960, guid: 12c2dbcddbc0ef34a824ffe3340ad337, type: 3}
+  - name: gen_prop_statue_02
+    prefab: {fileID: 7010096194474492594, guid: b5249605dfc3497418ade38b8ab9df1a, type: 3}
+  - name: gen_prop_statue_03
+    prefab: {fileID: 4724797836873258210, guid: 8e1633245f03a7f4f9e4498db4111b1e, type: 3}
+  - name: gen_prop_statue_04
+    prefab: {fileID: 727829056178393348, guid: cdc5b2484e32b7546a3259d9cba594c9, type: 3}
+  - name: gen_prop_statue_05
+    prefab: {fileID: 8349056238278736014, guid: 7c03a9e4638b28c4b996e815b6fca04d, type: 3}
+  - name: gen_prop_switch_01
+    prefab: {fileID: 1509870433839414871, guid: 065a2f0192a36ad46a8dc2b7cd336cda, type: 3}
+  - name: gen_prop_table_01
+    prefab: {fileID: 2234192276595900150, guid: 64f4594a7237f5c4bba17f2e2e903b2d, type: 3}
+  - name: prop_banner_01
     prefab: {fileID: 147606, guid: 8f2cbf2ae2d496b44ba72882a3c6d4c9, type: 3}
-  - name: banner_2
+  - name: prop_banner_02
     prefab: {fileID: 140704, guid: d9d95bd4aa86d86448ff3c157b7bb366, type: 3}
+  - name: prop_banner_03
+    prefab: {fileID: 189698, guid: c0b5622ce34bb094cb5eb8145c93566d, type: 3}
+  - name: prop_beam_01
+    prefab: {fileID: 163320, guid: 67e45b9aed9a8fb4e86029884b2c05a4, type: 3}
+  - name: prop_brazier_01
+    prefab: {fileID: 191442, guid: 20a79b55466cdb84da379ae63fc30867, type: 3}
+  - name: prop_brazier_01_snow
+    prefab: {fileID: 100126, guid: 181bc8ff855bc974c9ce4ca36ef19fdc, type: 3}
+  - name: prop_camp_fire_01
+    prefab: {fileID: 199490, guid: bddb857dccb8156419a78be08cb4b651, type: 3}
+  - name: prop_cart_01
+    prefab: {fileID: 111980, guid: fd3d2a7dec61bb842a89089e1d1e6764, type: 3}
+  - name: prop_cart_01_snow
+    prefab: {fileID: 166016, guid: 58b5596c2a042ab4c88e7cc17c107b4e, type: 3}
+  - name: prop_cart_hay_01
+    prefab: {fileID: 147522, guid: 132d1de61c7a2714f9cff49ced16356d, type: 3}
+  - name: prop_cart_hay_01_snow
+    prefab: {fileID: 105248, guid: aa763308863e10a47b22602d858ad492, type: 3}
+  - name: prop_cart_wheel_01
+    prefab: {fileID: 151704, guid: a46d562cc4980004b95e73322fc948be, type: 3}
+  - name: prop_crate_01
+    prefab: {fileID: 123248, guid: f028244a47462e3449e09903dedd7955, type: 3}
+  - name: prop_crate_01_snow
+    prefab: {fileID: 131010, guid: a14aedf782d161543a1bd0a7d18e84ee, type: 3}
+  - name: prop_fence_01
+    prefab: {fileID: 184858, guid: f5e310684d533124e895f9100f7931f4, type: 3}
+  - name: prop_fence_01_snow
+    prefab: {fileID: 138156, guid: c3ac44b9b3a44ba4196fc850bc8e84ec, type: 3}
+  - name: prop_fence_02
+    prefab: {fileID: 114448, guid: 7360d30a05af7804195e76840febbe6e, type: 3}
+  - name: prop_fence_02_snow
+    prefab: {fileID: 109540, guid: a486d8006db09f74a99d133b8f12e2ca, type: 3}
+  - name: prop_grate_01
+    prefab: {fileID: 138606, guid: f2bac0c9e640ce84e9b21a5f5f5dba0a, type: 3}
+  - name: prop_grate_01_snow
+    prefab: {fileID: 175644, guid: 8961a0b2625159641964ccce22b3d246, type: 3}
+  - name: prop_gravestone_01
+    prefab: {fileID: 118828, guid: a6cb2939c27644a4fb2c7ccfaeb7f585, type: 3}
+  - name: prop_gravestone_01_snow
+    prefab: {fileID: 101386, guid: e5f8de8909132a6478d0853a1c11567e, type: 3}
+  - name: prop_gravestone_02
+    prefab: {fileID: 193738, guid: 0d6e5cb5406ecf648812fe2278838cf4, type: 3}
+  - name: prop_gravestone_02_snow
+    prefab: {fileID: 117968, guid: e210e887242a7134abade0d1b832742f, type: 3}
+  - name: prop_guillotine_01
+    prefab: {fileID: 141480, guid: df9f1d2dab4510b4d8d47ec43af7f7ed, type: 3}
+  - name: prop_guillotine_01_snow
+    prefab: {fileID: 151874, guid: 5f766e69cffe20845b1337e48539a4e2, type: 3}
+  - name: prop_lampost_01
+    prefab: {fileID: 104616, guid: 5e1d462ffd80d7444837984e9e18388b, type: 3}
+  - name: prop_lampost_01_snow
+    prefab: {fileID: 175374, guid: 5516688bb778cce4090afb8abda9edb2, type: 3}
+  - name: prop_plinth_01
+    prefab: {fileID: 139188, guid: 8a0ac44a0009f534c81764924bb79dcd, type: 3}
+  - name: prop_plinth_01_snow
+    prefab: {fileID: 134370, guid: 08ee3ca477164424984f088a9497ca4d, type: 3}
+  - name: prop_plinth_02
+    prefab: {fileID: 124968, guid: 97f6cb46feaeb024d897f93adc19edc4, type: 3}
+  - name: prop_plinth_02_snow
+    prefab: {fileID: 111208, guid: 725788c117f414c43b9511d525bd5e78, type: 3}
+  - name: prop_rowboat_01
+    prefab: {fileID: 158262, guid: 4b52ac9f710a9a24bb72344a8ed0986e, type: 3}
+  - name: prop_rowboat_01_snow
+    prefab: {fileID: 118036, guid: af21d97d749213d4689d3d1105eabf70, type: 3}
+  - name: prop_shop_sign_01
+    prefab: {fileID: 151922, guid: 0aef469a23081de4fbba8b172278ce47, type: 3}
+  - name: prop_shop_sign_01_snow
+    prefab: {fileID: 153352, guid: 8767ba80530dd03469a4a034c9a9870f, type: 3}
+  - name: prop_statue_01
+    prefab: {fileID: 144138, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
+  - name: prop_statue_01_snow
+    prefab: {fileID: 153378, guid: 4c6c0304d24c75349a53d057cfe7b28c, type: 3}
+  - name: prop_statue_base_01
+    prefab: {fileID: 159930, guid: c6edd771222566e40b46e11cb85b9bad, type: 3}
+  - name: prop_statue_base_01_snow
+    prefab: {fileID: 125084, guid: 864b57f9f4a1e68488c3891d9599f481, type: 3}
+  - name: prop_trapdoor_01
+    prefab: {fileID: 137676, guid: decd5016c0f9a6744aecb456c0c2913e, type: 3}
+  - name: prop_trapdoor_01_snow
+    prefab: {fileID: 195842, guid: e236ced394417414f8e8ed670b7511ce, type: 3}
+  - name: prop_water_wheel_01
+    prefab: {fileID: 134024, guid: 190d4c69c7643e94c8c3a81ad97ce81e, type: 3}
+  - name: prop_water_wheel_01_snow
+    prefab: {fileID: 140674, guid: 17a30343d1d0d9746b9002676b658c22, type: 3}
+  - name: prop_water_wheel_support_01
+    prefab: {fileID: 115658, guid: 66ddb10137ec9f04caa60cd7f5c3b5e3, type: 3}
+  - name: prop_water_wheel_support_01_snow
+    prefab: {fileID: 199396, guid: 5c631a31a4067ab44afbf6d190b7454f, type: 3}
+  - name: prop_weathervane_01
+    prefab: {fileID: 479887414178642281, guid: 9e275be6a3eecf84ebff426eb9637fb2, type: 3}
