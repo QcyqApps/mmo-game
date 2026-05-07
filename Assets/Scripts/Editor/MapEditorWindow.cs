@@ -39,6 +39,8 @@ namespace MmoGame.Editor
         string _placeGroup = "";
         float _snapStep = 0f;            // 0 disables snap
         bool _snapToGround = true;       // raycast hit y is used; toggle uses 0
+        readonly Dictionary<string, bool> _subFold = new();
+        bool _waitingForPreviews;
 
         // ----- inspector state -----
         int _selectedPieceIdx = -1;
@@ -184,26 +186,78 @@ namespace MmoGame.Editor
             }
 
             EditorGUILayout.Space(2);
-            EditorGUILayout.LabelField($"Prefabs ({FilteredCatalog().Count()})", EditorStyles.miniBoldLabel);
+            var filtered = FilteredCatalog().ToList();
+            EditorGUILayout.LabelField($"Prefabs ({filtered.Count})", EditorStyles.miniBoldLabel);
 
             _paletteScroll = EditorGUILayout.BeginScrollView(_paletteScroll, GUILayout.ExpandHeight(true));
-            foreach (var entry in FilteredCatalog())
+
+            bool forceExpand = !string.IsNullOrEmpty(_searchFilter?.Trim());
+            _waitingForPreviews = false;
+
+            foreach (var sub in filtered.GroupBy(e => SubcategoryOf(e.name)).OrderBy(g => g.Key))
             {
-                bool active = entry.name == _placePrefabName;
-                var bg = GUI.backgroundColor;
-                if (active) GUI.backgroundColor = new Color(0.4f, 0.8f, 1f);
-                if (GUILayout.Button(
-                        new GUIContent($"{entry.name}\n  size {entry.size.x:F1}×{entry.size.y:F1}×{entry.size.z:F1}"),
-                        GUILayout.Height(32)))
-                {
-                    _placePrefabName = active ? null : entry.name;
-                    SceneView.RepaintAll();
-                }
-                GUI.backgroundColor = bg;
+                bool isOpen = forceExpand || _subFold.GetValueOrDefault(sub.Key, false);
+                var headerStyle = new GUIStyle(EditorStyles.foldout) { fontStyle = FontStyle.Bold };
+                bool nowOpen = EditorGUILayout.Foldout(isOpen, $"{sub.Key}  ({sub.Count()})", true, headerStyle);
+                if (!forceExpand && nowOpen != isOpen) _subFold[sub.Key] = nowOpen;
+                if (!nowOpen) continue;
+
+                EditorGUI.indentLevel++;
+                foreach (var entry in sub.OrderBy(e => e.name))
+                    DrawPrefabRow(entry);
+                EditorGUI.indentLevel--;
             }
             EditorGUILayout.EndScrollView();
 
+            // Repaint while Unity is still rendering thumbnails so they pop in.
+            if (_waitingForPreviews) Repaint();
+
             EditorGUILayout.EndVertical();
+        }
+
+        void DrawPrefabRow(SyntyCatalogScanner.CatalogEntry entry)
+        {
+            const float thumbSize = 44f;
+            bool active = entry.name == _placePrefabName;
+            var bg = GUI.backgroundColor;
+            if (active) GUI.backgroundColor = new Color(0.4f, 0.8f, 1f);
+
+            var row = EditorGUILayout.BeginHorizontal(EditorStyles.helpBox, GUILayout.Height(thumbSize + 4));
+
+            // Thumbnail — Unity returns null while it's still rendering; flag a repaint.
+            var thumbRect = GUILayoutUtility.GetRect(thumbSize, thumbSize, GUILayout.Width(thumbSize), GUILayout.Height(thumbSize));
+            Texture2D preview = null;
+            if (entry.prefab != null)
+            {
+                preview = AssetPreview.GetAssetPreview(entry.prefab);
+                if (preview == null && AssetPreview.IsLoadingAssetPreview(entry.prefab.GetInstanceID()))
+                    _waitingForPreviews = true;
+                if (preview == null) preview = AssetPreview.GetMiniThumbnail(entry.prefab);
+            }
+            if (preview != null) GUI.DrawTexture(thumbRect, preview, ScaleMode.ScaleToFit);
+
+            // Make the whole row clickable as a button (label + size).
+            var label = $"{entry.name}\n  {entry.size.x:F1} × {entry.size.y:F1} × {entry.size.z:F1}";
+            if (GUILayout.Button(label, EditorStyles.label, GUILayout.Height(thumbSize)))
+            {
+                _placePrefabName = active ? null : entry.name;
+                SceneView.RepaintAll();
+            }
+            EditorGUILayout.EndHorizontal();
+            GUI.backgroundColor = bg;
+        }
+
+        // Group by leading two underscore-separated tokens, e.g.
+        //   bld_house_room_01     → "bld_house"
+        //   bld_castle_wall_gate  → "bld_castle"
+        //   prop_banner_02        → "prop_banner"
+        //   env_tile_grass_01     → "env_tile"
+        // Single-segment names fall back to themselves.
+        static string SubcategoryOf(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return "";
+            var parts = name.Split('_');
+            return parts.Length >= 2 ? $"{parts[0]}_{parts[1]}" : parts[0];
         }
 
         IEnumerable<SyntyCatalogScanner.CatalogEntry> FilteredCatalog()
