@@ -24,6 +24,8 @@ namespace MmoGame.Editor
         const string PlayerFolder = "Assets/Content/Prefabs";
         const string ContentRoot = "Assets/Content";
         const string DefaultPrefabsAssetPath = "Assets/DefaultPrefabObjects.asset";
+        const string KnightVisualPath = "Assets/Synty/PolygonKnights/Prefabs/Characters/SM_Chr_Knight_01_Blue.prefab";
+        const string VisualChildName = "Visual";
 
         [MenuItem("MmoGame/Setup Network")]
         public static void Run()
@@ -35,6 +37,72 @@ namespace MmoGame.Editor
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveOpenScenes();
             Debug.Log("[NetworkSetup] Done. Press Play to host; second instance can join via --connect 127.0.0.1.");
+        }
+
+        [MenuItem("MmoGame/Apply Knight Visual")]
+        public static void ApplyKnightVisual()
+        {
+            var playerAsset = AssetDatabase.LoadAssetAtPath<GameObject>(PlayerPrefabPath);
+            if (playerAsset == null)
+            {
+                Debug.LogError($"[NetworkSetup] {PlayerPrefabPath} missing. Run 'MmoGame/Setup Network' first.");
+                return;
+            }
+            var knightSrc = AssetDatabase.LoadAssetAtPath<GameObject>(KnightVisualPath);
+            if (knightSrc == null)
+            {
+                Debug.LogError($"[NetworkSetup] Knight prefab missing at {KnightVisualPath}.");
+                return;
+            }
+
+            var contents = PrefabUtility.LoadPrefabContents(PlayerPrefabPath);
+            try
+            {
+                StripPlaceholderVisual(contents);
+
+                // Replace existing Visual child if present (idempotent)
+                var existing = contents.transform.Find(VisualChildName);
+                if (existing != null) Object.DestroyImmediate(existing.gameObject);
+
+                var knightInstance = (GameObject)PrefabUtility.InstantiatePrefab(knightSrc, contents.transform);
+                knightInstance.name = VisualChildName;
+                knightInstance.transform.localPosition = Vector3.zero;
+                knightInstance.transform.localRotation = Quaternion.identity;
+                knightInstance.transform.localScale = Vector3.one;
+
+                EnsureRootCollider(contents);
+
+                PrefabUtility.SaveAsPrefabAsset(contents, PlayerPrefabPath);
+            }
+            finally
+            {
+                PrefabUtility.UnloadPrefabContents(contents);
+            }
+
+            AssetDatabase.SaveAssets();
+            Debug.Log("[NetworkSetup] Player.prefab now uses Knight visual. Press Play.");
+        }
+
+        static void StripPlaceholderVisual(GameObject root)
+        {
+            // The week-2 placeholder lived as MeshFilter + MeshRenderer + CapsuleCollider on the root itself.
+            // Knight visual lives in a child, so we shed those root components.
+            var mf = root.GetComponent<MeshFilter>();
+            if (mf != null) Object.DestroyImmediate(mf);
+            var mr = root.GetComponent<MeshRenderer>();
+            if (mr != null) Object.DestroyImmediate(mr);
+            // Keep CapsuleCollider — we'll reuse / re-tune it via EnsureRootCollider.
+        }
+
+        static void EnsureRootCollider(GameObject root)
+        {
+            var col = root.GetComponent<CapsuleCollider>();
+            if (col == null) col = root.AddComponent<CapsuleCollider>();
+            // Knight is roughly 2m tall, centered around the model's pivot at feet.
+            col.height = 2f;
+            col.radius = 0.4f;
+            col.center = new Vector3(0f, 1f, 0f);
+            col.isTrigger = false;
         }
 
         static void EnsureFolders()

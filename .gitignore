@@ -66,6 +66,12 @@ Server/nakama-data/
 Server/nakama/.cookie
 Server/*.log
 
+# Synty assets — płatne paczki, każdy dev importuje swoją licencjonowaną
+# kopię z Asset Store. GUID references w prefabach przeżyją reimport jeśli
+# wersja pakietu zgadza się.
+Assets/Synty/
+Assets/Synty.meta
+
 # Node / tooling
 node_modules/
 *.log
