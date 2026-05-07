@@ -85,6 +85,28 @@ MmoGame/
 | 2026-05-07 | UI Toolkit zamiast UGUI | Text-first, diff-friendly, fits AI-driven workflow |
 | 2026-05-07 | Polski w UI, angielski w kodzie | User-facing PL, code/identifiers EN |
 | 2026-05-07 | AI commituje autonomicznie | Maximum AI autonomy principle |
+| 2026-05-07 | MPPM 1.6 zamiast 2.0.2 | 2.x w Unity 6.4 brak UI configuratora — niedopracowane |
+| 2026-05-07 | Map JSON manifest + auto-skaner Synty | 12-entry hard-coded list nie skaluje do Prontery; auto-scan daje 423 entries + bounds |
+| 2026-05-07 | `.claude/agents/map-author.md` subagent | Map authoring = osobny domain (catalog + schema + RO conventions); izolacja kontekstu |
+| 2026-05-07 | Tent placeholdery dla landmarków Prontery | Knights pack nie ma tile-roof town buildings; podmiana po imporcie POLYGON Town |
+
+## Map authoring pipeline (post Tydzień 3.5)
+
+```
+Synty packs (Assets/Synty/)
+       │
+       ▼ MmoGame > Rebuild Synty Catalog
+[SyntyCatalogScanner] ──► MapPrefabRegistry.asset (423 entries)
+                          synty-catalog.md (size + pivot per piece)
+                          
+JSON manifest (Assets/Resources/Maps/<name>.json)
+       │
+       ├─► MmoGame > Validate Maps   (MapValidator → console)
+       ├─► MmoGame > Preview Map > … (MapPreview → edit-time spawn, no Play)
+       └─► MapLoader.Load(name)      (runtime spawn + NavMeshSurface bake)
+```
+
+Subagent `map-author` (`.claude/agents/map-author.md`) konsumuje catalog + reference docs, edytuje JSON, validuje, preview'uje, iteruje. Dla Prontery dał 9 pieces + 10 tilings → 4859 instances, validator clean.
 
 ## Otwarte pytania (do rozstrzygnięcia w czasie)
 

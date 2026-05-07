@@ -69,11 +69,23 @@ Wymagane Unity modules (przez Hub): Linux Build Support (IL2CPP), Linux Dedicate
 Vertical slice (6 tygodni): jedna mapa, jeden mob, jedna walka, login, dwóch graczy.
 
 - [x] **Tydzień 1** — Fundament: git, server stack, build pipeline, packages, MCP, asmdefs.
-- [ ] **Tydzień 2** — Login (Nakama), spawn, FishNet networking, dwóch graczy się widzi.
-- [ ] **Tydzień 3** — Mapa Synty z YAML manifestu, izometryczna kamera, click-to-move.
-- [ ] **Tydzień 4** — Walka target-based, mob AI, drop loot.
-- [ ] **Tydzień 5** — Inventory, equip, persystencja postaci.
+- [x] **Tydzień 2** — Login (Nakama device-id), Knight spawn, FishNet host + MPPM client, dwóch graczy się widzi.
+- [x] **Tydzień 3 etap 1-4** — Synty Knight visual, izometryczna kamera (45° follow), data-driven mapa z JSON, click-to-move via NavMesh.
+- [x] **Tydzień 3.5 — Map authoring tooling** — auto-skanner Synty (423 entries → `Assets/Docs/maps/synty-catalog.md`), schema z `tilings[]` + `parent`/`note`, `MapValidator`, edit-time `MapPreview`, `.claude/agents/map-author.md` subagent, **Prontera V1** (200×200u walled city, plaza + 4 gates + 4 landmarks, 4859 instances).
+- [ ] **Tydzień 3 etap 5** — UI Toolkit HUD (HP/SP/level placeholdery).
+- [ ] **Tydzień 4** — Walka target-based, mob AI, drop loot, Knight Animator Controller.
+- [ ] **Tydzień 5** — Inventory, equip, persystencja postaci w Nakama Storage. Naprawa Synty mesh `isReadable=false` przed Android buildem.
 - [ ] **Tydzień 6** — Chat, polish, Android build, demo.
+
+### Mapa — workflow
+
+- Edytuj `Assets/Resources/Maps/<name>.json` (schema → `Assets/Scripts/World/MapManifest.cs`).
+- `MmoGame > Validate Maps` — pre-flight check (registry resolve / Y range / AABB overlap).
+- `MmoGame > Preview Map > <name>` — edit-time instancja w aktywnej scenie (bez Play, ~5s loop).
+- `MmoGame > Clear Map Preview` — cleanup.
+- Po imporcie nowych Synty packów: `MmoGame > Rebuild Synty Catalog`.
+- `Assets/Docs/maps/synty-catalog.md` — generated index (rozmiary + pivot offsets) — czyta się **przed** authoringiem.
+- `Assets/Docs/maps/prontera-reference.md` — design intent dla Prontery, używany przez subagenta.
 
 ## Konwencje
 
