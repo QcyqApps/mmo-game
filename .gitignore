@@ -63,6 +63,7 @@ secrets/
 Server/data/
 Server/postgres-data/
 Server/nakama-data/
+Server/nakama/.cookie
 Server/*.log
 
 # Node / tooling
