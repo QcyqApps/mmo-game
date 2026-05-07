@@ -1,0 +1,33 @@
+{
+  "name": "prontera",
+  "pieces": [
+    { "prefab": "bld_rockwall_archway_01", "position": [100, 0, 0],   "rotation": [0, 90, 0], "parent": "gates", "note": "east gate" },
+    { "prefab": "bld_rockwall_archway_01", "position": [-100, 0, 0],  "rotation": [0, 90, 0], "parent": "gates", "note": "west gate" },
+    { "prefab": "bld_rockwall_archway_01", "position": [0, 0, 100],   "rotation": [0, 0, 0],  "parent": "gates", "note": "north gate" },
+    { "prefab": "bld_rockwall_archway_01", "position": [0, 0, -100],  "rotation": [0, 0, 0],  "parent": "gates", "note": "south gate" },
+
+    { "prefab": "prop_brazier_01", "position": [0, 0, 0], "rotation": [0, 0, 0], "parent": "plaza", "note": "fountain placeholder at plaza centre" },
+
+    { "prefab": "bld_tent_01",        "position": [30, 0, 30],   "rotation": [0, 225, 0], "parent": "district-NE", "note": "kafra (NE merchant) - faces plaza SW" },
+    { "prefab": "bld_castle_door_01", "position": [-30, 0, 30],  "rotation": [0, 180, 0], "parent": "district-NW", "note": "weapon-shop (NW residential) - faces plaza" },
+    { "prefab": "bld_tent_02",        "position": [-35, 0, -35], "rotation": [0, 45, 0],  "parent": "district-SW", "note": "item-shop (SW barracks) - faces plaza NE" },
+    { "prefab": "bld_tent_03",        "position": [35, 0, -35],  "rotation": [0, -45, 0], "parent": "district-SE", "note": "inn (SE temple) - faces plaza NW" }
+  ],
+  "tilings": [
+    { "prefab": "env_tile_grass_01", "min": [-99, 0, -99], "max": [99, 0, 99], "step": [3, 0, 3], "rotation": [0, 0, 0], "parent": "ground", "note": "200x200 grass baseline (tile=3u)" },
+
+    { "prefab": "env_path_cobble_01", "min": [-18, 0.05, -18], "max": [18, 0.05, 18], "step": [3, 0, 3], "rotation": [0, 0, 0], "parent": "plaza", "note": "40x40 plaza paving, slight y=0.05 to avoid z-fight with grass" },
+
+    { "prefab": "bld_rockwall_straight_01", "min": [100, 0, 4],    "max": [100, 0, 98],  "step": [0, 0, 4], "rotation": [0, 0, 0],   "parent": "walls", "note": "east wall north half (gate gap z=-2..+2)" },
+    { "prefab": "bld_rockwall_straight_01", "min": [100, 0, -98],  "max": [100, 0, -4],  "step": [0, 0, 4], "rotation": [0, 0, 0],   "parent": "walls", "note": "east wall south half" },
+
+    { "prefab": "bld_rockwall_straight_01", "min": [-100, 0, 4],   "max": [-100, 0, 98], "step": [0, 0, 4], "rotation": [0, 180, 0], "parent": "walls", "note": "west wall north half (mirrored)" },
+    { "prefab": "bld_rockwall_straight_01", "min": [-100, 0, -98], "max": [-100, 0, -4], "step": [0, 0, 4], "rotation": [0, 180, 0], "parent": "walls", "note": "west wall south half" },
+
+    { "prefab": "bld_rockwall_straight_01", "min": [4, 0, 100],    "max": [98, 0, 100],  "step": [4, 0, 0], "rotation": [0, 90, 0],  "parent": "walls", "note": "north wall east half (gate gap x=-2..+2)" },
+    { "prefab": "bld_rockwall_straight_01", "min": [-98, 0, 100],  "max": [-4, 0, 100],  "step": [4, 0, 0], "rotation": [0, 90, 0],  "parent": "walls", "note": "north wall west half" },
+
+    { "prefab": "bld_rockwall_straight_01", "min": [4, 0, -100],   "max": [98, 0, -100], "step": [4, 0, 0], "rotation": [0, -90, 0], "parent": "walls", "note": "south wall east half (mirrored)" },
+    { "prefab": "bld_rockwall_straight_01", "min": [-98, 0, -100], "max": [-4, 0, -100], "step": [4, 0, 0], "rotation": [0, -90, 0], "parent": "walls", "note": "south wall west half" }
+  ]
+}
