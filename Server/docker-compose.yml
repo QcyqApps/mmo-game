@@ -18,7 +18,7 @@ services:
       - "5432"
 
   nakama:
-    image: heroiclabs/nakama:3.24.0
+    image: heroiclabs/nakama:3.21.1
     container_name: mmogame-nakama
     restart: unless-stopped
     depends_on:
@@ -27,16 +27,16 @@ services:
     entrypoint:
       - "/bin/sh"
       - "-ecx"
-      - >
+      - >-
         /nakama/nakama migrate up
-          --database.address nakama:${POSTGRES_PASSWORD}@postgres:5432/nakama
+        --database.address nakama:${POSTGRES_PASSWORD}@postgres:5432/nakama
         && exec /nakama/nakama
-          --config /nakama/data/local.yml
-          --database.address nakama:${POSTGRES_PASSWORD}@postgres:5432/nakama
-          --session.encryption_key ${SESSION_ENCRYPTION_KEY:?set SESSION_ENCRYPTION_KEY in Server/.env}
-          --session.refresh_encryption_key ${SESSION_REFRESH_ENCRYPTION_KEY:?set SESSION_REFRESH_ENCRYPTION_KEY in Server/.env}
-          --socket.server_key ${SERVER_KEY:?set SERVER_KEY in Server/.env}
-          --console.password ${CONSOLE_PASSWORD:?set CONSOLE_PASSWORD in Server/.env}
+        --config /nakama/data/local.yml
+        --database.address nakama:${POSTGRES_PASSWORD}@postgres:5432/nakama
+        --session.encryption_key ${SESSION_ENCRYPTION_KEY:?set SESSION_ENCRYPTION_KEY in Server/.env}
+        --session.refresh_encryption_key ${SESSION_REFRESH_ENCRYPTION_KEY:?set SESSION_REFRESH_ENCRYPTION_KEY in Server/.env}
+        --socket.server_key ${SERVER_KEY:?set SERVER_KEY in Server/.env}
+        --console.password ${CONSOLE_PASSWORD:?set CONSOLE_PASSWORD in Server/.env}
     volumes:
       - ./nakama:/nakama/data
     ports:

@@ -15,6 +15,22 @@ Format jednego wpisu:
 
 ---
 
+### 2026-05-07 — Docker Compose YAML `>` folded scalar z mieszanym wcięciem psuje shell
+
+**Kontekst:** Definicja `entrypoint:` Nakamy w `Server/docker-compose.yml` z `>` folded scalar i kontynuacjami flag wcięte głębiej dla czytelności:
+```yaml
+- >
+  /nakama/nakama migrate up
+    --database.address nakama:${POSTGRES_PASSWORD}@postgres:5432/nakama
+  && exec /nakama/nakama
+    --config /nakama/data/local.yml
+    ...
+```
+**Problem:** Nakama padał z `dial tcp 127.0.0.1:26257: connect: connection refused` — to default port CockroachDB. Czyli flaga `--database.address` w ogóle nie docierała.
+**Diagnoza:** YAML `>` folduje linie do spacji **tylko jeśli mają to samo wcięcie co pierwsza**. Linie z większym wcięciem **zachowują newline'y**. Wynikowy string ma faktyczne `\n` w środku → `sh -c "..."` traktuje je jako separatory komend. `migrate up` startuje **bez** `--database.address`, łapie default CockroachDB, łomocze.
+**Rozwiązanie:** `>-` z **identycznym wcięciem** wszystkich linii. Po fixie `docker compose config` pokazuje entrypoint jako jedną długą linię — `sh` widzi single command z poprawnymi flagami.
+**Wniosek:** Multi-line shell w YAML — albo `>-` z jednym poziomem wcięcia, albo `|-` z explicit `\` line continuations. Nigdy nie ufaj wizualnemu wcięciu pod `>`. Verify przez `docker compose config | grep -A 5 entrypoint`.
+
 ### 2026-05-07 — Sekrety Nakama nie interpolują się w `local.yml`
 
 **Kontekst:** Konfigurując Nakama przez docker-compose, najpierw wpisałem `${SESSION_ENCRYPTION_KEY}` itp. bezpośrednio w `Server/nakama/local.yml`.
